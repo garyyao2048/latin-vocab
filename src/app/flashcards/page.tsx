@@ -1,9 +1,8 @@
 'use client';
 
 import { useState, useMemo, useCallback } from 'react';
-import { vocab, VocabEntry } from '@/data/vocab';
-
-const POS_FILTERS = ['all', 'noun', 'verb', 'adjective', 'adverb', 'preposition', 'conjunction', 'pronoun'] as const;
+import { VocabEntry } from '@/data/vocab';
+import { vocabLists } from '@/data/lists';
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -15,22 +14,17 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 export default function FlashcardsPage() {
-  const [posFilter, setPosFilter] = useState<string>('all');
-  const [restrictedOnly, setRestrictedOnly] = useState(false);
+  const [selectedList, setSelectedList] = useState<number | null>(null);
   const [direction, setDirection] = useState<'lat-eng' | 'eng-lat'>('lat-eng');
   const [flipped, setFlipped] = useState(false);
   const [index, setIndex] = useState(0);
   const [shuffled, setShuffled] = useState(false);
 
   const filtered = useMemo(() => {
-    let list = vocab.filter((v) => {
-      if (posFilter !== 'all' && !v.partOfSpeech.includes(posFilter)) return false;
-      if (restrictedOnly && !v.isRestricted) return false;
-      return true;
-    });
-    if (shuffled) list = shuffle(list);
-    return list;
-  }, [posFilter, restrictedOnly, shuffled]);
+    if (selectedList === null) return [];
+    const list = vocabLists.find((l) => l.id === selectedList)!.words;
+    return shuffled ? shuffle(list) : list;
+  }, [selectedList, shuffled]);
 
   const card: VocabEntry | undefined = filtered[index];
 
@@ -49,32 +43,45 @@ export default function FlashcardsPage() {
 
   const resetIndex = () => { setIndex(0); setFlipped(false); };
 
+  // List picker
+  if (selectedList === null) {
+    return (
+      <div className="max-w-2xl mx-auto px-4 py-10">
+        <h1 className="text-2xl font-bold text-accent mb-6">Flashcards</h1>
+        <p className="text-sm text-foreground/60 mb-4">Choose a list to study:</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {vocabLists.map((list) => (
+            <button
+              key={list.id}
+              onClick={() => setSelectedList(list.id)}
+              className="text-left p-4 rounded-xl border border-card-border bg-card-bg hover:shadow-md hover:border-accent-light transition-all"
+            >
+              <span className="font-semibold">{list.label}</span>
+              <span className="block text-sm text-foreground/50 mt-0.5">{list.range}</span>
+              <span className="block text-xs text-foreground/40 mt-0.5">{list.words.length} words</span>
+            </button>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="max-w-2xl mx-auto px-4 py-10">
-      <h1 className="text-2xl font-bold text-accent mb-6">Flashcards</h1>
+      <div className="flex items-center gap-3 mb-6">
+        <button
+          onClick={() => { setSelectedList(null); resetIndex(); }}
+          className="text-sm text-accent hover:underline"
+        >
+          &larr; Back to lists
+        </button>
+        <h1 className="text-2xl font-bold text-accent">
+          {vocabLists.find((l) => l.id === selectedList)!.label}
+        </h1>
+      </div>
 
       {/* Controls */}
       <div className="flex flex-wrap gap-3 mb-6 text-sm">
-        <select
-          value={posFilter}
-          onChange={(e) => { setPosFilter(e.target.value); resetIndex(); }}
-          className="px-3 py-1.5 rounded-lg border border-card-border bg-card-bg"
-        >
-          {POS_FILTERS.map((p) => (
-            <option key={p} value={p}>{p === 'all' ? 'All parts of speech' : p.charAt(0).toUpperCase() + p.slice(1) + 's'}</option>
-          ))}
-        </select>
-
-        <label className="flex items-center gap-1.5 cursor-pointer">
-          <input
-            type="checkbox"
-            checked={restrictedOnly}
-            onChange={(e) => { setRestrictedOnly(e.target.checked); resetIndex(); }}
-            className="accent-accent"
-          />
-          Restricted list only
-        </label>
-
         <button
           onClick={() => { setShuffled(!shuffled); resetIndex(); }}
           className="px-3 py-1.5 rounded-lg border border-card-border bg-card-bg hover:bg-accent-light/10"
@@ -91,7 +98,7 @@ export default function FlashcardsPage() {
       </div>
 
       {/* Card */}
-      {card ? (
+      {card && (
         <>
           <div className="text-sm text-foreground/50 mb-2 text-center">
             {index + 1} / {filtered.length}
@@ -101,7 +108,6 @@ export default function FlashcardsPage() {
             onClick={() => setFlipped(!flipped)}
           >
             <div className={`flip-card-inner relative w-full h-full ${flipped ? 'flipped' : ''}`}>
-              {/* Front */}
               <div className="flip-card-front absolute inset-0 flex flex-col items-center justify-center rounded-xl border border-card-border bg-card-bg shadow-sm p-6">
                 <span className="text-3xl font-bold mb-2">
                   {direction === 'lat-eng' ? card.latin : card.meanings}
@@ -113,7 +119,6 @@ export default function FlashcardsPage() {
                 )}
                 <span className="text-xs text-foreground/30 mt-4">tap to flip</span>
               </div>
-              {/* Back */}
               <div className="flip-card-back absolute inset-0 flex flex-col items-center justify-center rounded-xl border border-accent-light bg-accent/5 shadow-sm p-6">
                 <span className="text-2xl font-bold mb-2">
                   {direction === 'lat-eng' ? card.meanings : card.latin}
@@ -126,7 +131,6 @@ export default function FlashcardsPage() {
             </div>
           </div>
 
-          {/* Navigation */}
           <div className="flex justify-center gap-4 mt-6">
             <button
               onClick={() => go(-1)}
@@ -142,8 +146,6 @@ export default function FlashcardsPage() {
             </button>
           </div>
         </>
-      ) : (
-        <p className="text-center text-foreground/50 mt-10">No words match your filters.</p>
       )}
     </div>
   );

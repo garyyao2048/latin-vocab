@@ -32,6 +32,16 @@ export default function Home() {
         </Link>
 
         <Link
+          href="/practice"
+          className="block p-6 rounded-xl border border-card-border bg-card-bg hover:shadow-md hover:border-accent-light transition-all"
+        >
+          <h2 className="text-xl font-semibold mb-2">Typed Practice</h2>
+          <p className="text-sm text-foreground/60">
+            Type translations, then review your answers in a carousel. Self-mark each word.
+          </p>
+        </Link>
+
+        <Link
           href="/declensions"
           className="block p-6 rounded-xl border border-card-border bg-card-bg hover:shadow-md hover:border-accent-light transition-all"
         >

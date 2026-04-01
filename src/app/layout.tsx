@@ -44,6 +44,9 @@ export default function RootLayout({
               <Link href="/declensions" className="hover:text-accent transition-colors">
                 Declensions
               </Link>
+              <Link href="/practice" className="hover:text-accent transition-colors">
+                Practice
+              </Link>
               <Link href="/conjugations" className="hover:text-accent transition-colors">
                 Conjugations
               </Link>
