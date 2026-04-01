@@ -1,0 +1,4806 @@
+[
+  {
+    "latin": "a, ab",
+    "forms": "+ ablative (also used as prefix with verbs)",
+    "partOfSpeech": "preposition",
+    "meanings": [
+      "from",
+      "away from",
+      "by (as prefix = away)"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "absum",
+    "forms": "abesse, afui",
+    "partOfSpeech": "verb",
+    "subtype": "irregular",
+    "meanings": [
+      "be absent",
+      "be away",
+      "be distant from"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "ac, atque",
+    "forms": "",
+    "partOfSpeech": "conjunction",
+    "indeclinable": true,
+    "meanings": [
+      "and"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "accido",
+    "forms": "accidere, accidi",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "happen"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "accipio",
+    "forms": "accipere, accepi, acceptus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "accept",
+      "take in",
+      "receive"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "ad",
+    "forms": "+ accusative (also used as prefix with verbs)",
+    "partOfSpeech": "preposition",
+    "meanings": [
+      "to",
+      "towards",
+      "at"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "adeo",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "so much",
+      "so greatly",
+      "to such an extent"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "adsum",
+    "forms": "adesse, adfui",
+    "partOfSpeech": "verb",
+    "subtype": "irregular",
+    "meanings": [
+      "be here",
+      "be present"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "advenio",
+    "forms": "advenire, adveni",
+    "partOfSpeech": "verb",
+    "subtype": "4",
+    "meanings": [
+      "arrive"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "aedifico",
+    "forms": "aedificare, aedificavi, aedificatus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "build"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "ager",
+    "forms": "agri, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "field"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "ago",
+    "forms": "agere, egi, actus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "do",
+      "act",
+      "drive"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "alii … alii",
+    "forms": "",
+    "partOfSpeech": "phrase",
+    "meanings": [
+      "some … others"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "alius",
+    "forms": "alia, aliud",
+    "partOfSpeech": "pronoun/adjective",
+    "meanings": [
+      "other",
+      "another",
+      "else"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "alter",
+    "forms": "altera, alterum",
+    "partOfSpeech": "pronoun/adjective",
+    "meanings": [
+      "the other",
+      "another",
+      "one (of two)",
+      "the second (of two)"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "altus",
+    "forms": "alta, altum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "high",
+      "deep"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "ambulo",
+    "forms": "ambulare, ambulavi",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "walk"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "amicus",
+    "forms": "amici, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "friend"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "amo",
+    "forms": "amare, amavi, amatus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "love",
+      "like"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "amor",
+    "forms": "amoris, m",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m",
+    "meanings": [
+      "love"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "ancilla",
+    "forms": "ancillae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "slave-girl",
+      "slave-woman"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "animus",
+    "forms": "animi, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "spirit",
+      "soul",
+      "mind"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "annus",
+    "forms": "anni, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "year"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "antea",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "before"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "appropinquo",
+    "forms": "appropinquare, appropinquavi + dative",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "approach",
+      "come near to"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "aqua",
+    "forms": "aquae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "water"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "arma",
+    "forms": "armorum, n plural",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "n",
+    "meanings": [
+      "arms",
+      "weapons"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "ars",
+    "forms": "artis, f",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "f",
+    "meanings": [
+      "art",
+      "skill"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "ascendo",
+    "forms": "ascendere, ascendi, ascensus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "climb"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "audax",
+    "forms": "audacis",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "bold",
+      "daring"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "audeo",
+    "forms": "audere, ausus sum",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "dare"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "audio",
+    "forms": "audire, audivi, auditus",
+    "partOfSpeech": "verb",
+    "subtype": "4",
+    "meanings": [
+      "hear",
+      "listen to"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "aufero",
+    "forms": "auferre, abstuli, ablatus",
+    "partOfSpeech": "verb",
+    "subtype": "irregular",
+    "meanings": [
+      "take away",
+      "carry off",
+      "steal"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "auxilium",
+    "forms": "auxilii, n",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "n",
+    "meanings": [
+      "help"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "bellum",
+    "forms": "belli, n",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "n",
+    "meanings": [
+      "war"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "bene",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "well"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "bibo",
+    "forms": "bibere, bibi",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "drink"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "bonus",
+    "forms": "bona, bonum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "good"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "brevis",
+    "forms": "breve",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "short",
+      "brief"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "cado",
+    "forms": "cadere, cecidi, casus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "fall"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "caelum",
+    "forms": "caeli, n",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "n",
+    "meanings": [
+      "sky",
+      "heaven"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "capio",
+    "forms": "capere, cepi, captus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "take",
+      "catch",
+      "capture",
+      "make (a plan)"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "captivus",
+    "forms": "captivi, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "captive",
+      "prisoner"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "caput",
+    "forms": "capitis, n",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "n",
+    "meanings": [
+      "head"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "castra",
+    "forms": "castrorum, n plural",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "n",
+    "meanings": [
+      "camp"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "celer",
+    "forms": "celeris, celere",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "quick",
+      "fast"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "celo",
+    "forms": "celare, celavi, celatus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "hide"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "cena",
+    "forms": "cenae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "dinner",
+      "meal"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "ceteri",
+    "forms": "ceterae, cetera",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "the rest",
+      "the others"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "cibus",
+    "forms": "cibi, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "food"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "circum",
+    "forms": "+ accusative",
+    "partOfSpeech": "preposition",
+    "meanings": [
+      "around"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "civis",
+    "forms": "civis, m and f",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m/f",
+    "meanings": [
+      "citizen"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "clamo",
+    "forms": "clamare, clamavi, clamatus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "shout"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "clamor",
+    "forms": "clamoris, m",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m",
+    "meanings": [
+      "shout",
+      "shouting",
+      "noise"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "clarus",
+    "forms": "clara, clarum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "famous",
+      "clear"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "coepi",
+    "forms": "coepisse",
+    "partOfSpeech": "verb",
+    "subtype": "irregular",
+    "meanings": [
+      "began"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "cogito",
+    "forms": "cogitare, cogitavi, cogitatus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "think",
+      "consider"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "cognosco",
+    "forms": "cognoscere, cognovi, cognitus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "get to know",
+      "find out"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "cogo",
+    "forms": "cogere, coegi, coactus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "force",
+      "compel"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "comes",
+    "forms": "comitis, m and f",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m/f",
+    "meanings": [
+      "comrade",
+      "companion"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "conficio",
+    "forms": "conficere, confeci, confectus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "finish",
+      "wear out"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "conor",
+    "forms": "conari, conatus sum",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "deponent": true,
+    "meanings": [
+      "try"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "consilium",
+    "forms": "consilii, n",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "n",
+    "meanings": [
+      "plan",
+      "idea",
+      "advice"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "conspicio",
+    "forms": "conspicere, conspexi, conspectus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "catch sight of",
+      "notice"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "constituo",
+    "forms": "constituere, constitui, constitutus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "decide"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "consul",
+    "forms": "consulis, m",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m",
+    "meanings": [
+      "consul"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "consumo",
+    "forms": "consumere, consumpsi, consumptus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "eat"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "contra",
+    "forms": "+ accusative",
+    "partOfSpeech": "preposition",
+    "meanings": [
+      "against"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "convenio",
+    "forms": "convenire, conveni",
+    "partOfSpeech": "verb",
+    "subtype": "4",
+    "meanings": [
+      "come together",
+      "gather",
+      "meet"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "copiae",
+    "forms": "copiarum, f plural",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "forces",
+      "troops"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "corpus",
+    "forms": "corporis, n",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "n",
+    "meanings": [
+      "body"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "cras",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "tomorrow"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "credo",
+    "forms": "credere, credidi, creditus + dative",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "believe",
+      "trust"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "crudelis",
+    "forms": "crudele",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "cruel"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "cum",
+    "forms": "+ ablative",
+    "partOfSpeech": "preposition",
+    "meanings": [
+      "with"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "cum",
+    "forms": "",
+    "partOfSpeech": "conjunction",
+    "indeclinable": true,
+    "meanings": [
+      "when",
+      "since"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "cupio",
+    "forms": "cupere, cupivi, cupitus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "want",
+      "desire"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "cur?",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "why?"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "cura",
+    "forms": "curae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "care",
+      "worry"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "curro",
+    "forms": "currere, cucurri, cursus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "run"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "custodio",
+    "forms": "custodire, custodivi, custoditus",
+    "partOfSpeech": "verb",
+    "subtype": "4",
+    "meanings": [
+      "guard"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "custos",
+    "forms": "custodis, m and f",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m/f",
+    "meanings": [
+      "guard"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "de",
+    "forms": "+ ablative",
+    "partOfSpeech": "preposition",
+    "meanings": [
+      "from",
+      "down from",
+      "about"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "dea",
+    "forms": "deae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "goddess"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "debeo",
+    "forms": "debere, debui, debitus",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "owe",
+      "ought",
+      "should",
+      "must"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "defendo",
+    "forms": "defendere, defendi, defensus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "defend"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "deinde",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "then"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "deleo",
+    "forms": "delere, delevi, deletus",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "destroy"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "descendo",
+    "forms": "descendere, descendi, descensus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "go down",
+      "come down"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "deus",
+    "forms": "dei, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "god"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "dico",
+    "forms": "dicere, dixi, dictus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "say",
+      "speak",
+      "tell"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "dies",
+    "forms": "diei, m",
+    "partOfSpeech": "noun",
+    "subtype": "5",
+    "gender": "m",
+    "meanings": [
+      "day"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "difficilis",
+    "forms": "difficile",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "difficult"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "diligens",
+    "forms": "diligentis",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "careful"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "dirus",
+    "forms": "dira, dirum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "dreadful"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "discedo",
+    "forms": "discedere, discessi",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "depart",
+      "leave"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "diu",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "for a long time"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "do",
+    "forms": "dare, dedi, datus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "give"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "doceo",
+    "forms": "docere, docui, doctus",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "teach"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "domina",
+    "forms": "dominae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "mistress"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "dominus",
+    "forms": "domini, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "master"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "domus",
+    "forms": "domus, f (domi = at home)",
+    "partOfSpeech": "noun",
+    "subtype": "4",
+    "gender": "f",
+    "meanings": [
+      "home"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "donum",
+    "forms": "doni, n",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "n",
+    "meanings": [
+      "gift",
+      "present"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "dormio",
+    "forms": "dormire, dormivi",
+    "partOfSpeech": "verb",
+    "subtype": "4",
+    "meanings": [
+      "sleep"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "duco",
+    "forms": "ducere, duxi, ductus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "lead",
+      "take"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "dum",
+    "forms": "",
+    "partOfSpeech": "conjunction",
+    "indeclinable": true,
+    "meanings": [
+      "while",
+      "until"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "dux",
+    "forms": "ducis, m",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m",
+    "meanings": [
+      "leader"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "e, ex",
+    "forms": "+ ablative (also used as prefix with verbs)",
+    "partOfSpeech": "preposition",
+    "meanings": [
+      "from",
+      "out of",
+      "out"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "ecce!",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "look!"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "effugio",
+    "forms": "effugere, effugi",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "escape"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "ego",
+    "forms": "mei",
+    "partOfSpeech": "pronoun",
+    "meanings": [
+      "I",
+      "me"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "egredior",
+    "forms": "egredi, egressus sum",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "deponent": true,
+    "meanings": [
+      "go out"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "emo",
+    "forms": "emere, emi, emptus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "buy"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "enim",
+    "forms": "",
+    "partOfSpeech": "conjunction",
+    "indeclinable": true,
+    "meanings": [
+      "for"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "eo",
+    "forms": "ire, i(v)i",
+    "partOfSpeech": "verb",
+    "subtype": "irregular",
+    "meanings": [
+      "go"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "epistula",
+    "forms": "epistulae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "letter"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "equus",
+    "forms": "equi, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "horse"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "et",
+    "forms": "",
+    "partOfSpeech": "conjunction",
+    "indeclinable": true,
+    "meanings": [
+      "and",
+      "even"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "et ... et",
+    "forms": "",
+    "partOfSpeech": "phrase",
+    "meanings": [
+      "both ... and"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "etiam",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "also",
+      "even"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "exercitus",
+    "forms": "exercitus, m",
+    "partOfSpeech": "noun",
+    "subtype": "4",
+    "gender": "m",
+    "meanings": [
+      "army"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "exspecto",
+    "forms": "exspectare, exspectavi, exspectatus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "wait for",
+      "expect"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "facilis",
+    "forms": "facile",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "easy"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "facio",
+    "forms": "facere, feci, factus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "make",
+      "do"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "faveo",
+    "forms": "favere, favi, fautus + dative",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "favour",
+      "support"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "felix",
+    "forms": "felicis",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "fortunate",
+      "happy"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "femina",
+    "forms": "feminae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "woman"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "fero",
+    "forms": "ferre, tuli, latus",
+    "partOfSpeech": "verb",
+    "subtype": "irregular",
+    "meanings": [
+      "bring",
+      "carry",
+      "bear"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "ferox",
+    "forms": "ferocis",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "fierce",
+      "ferocious"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "festino",
+    "forms": "festinare, festinavi",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "hurry"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "fidelis",
+    "forms": "fidele",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "faithful",
+      "loyal"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "filia",
+    "forms": "filiae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "daughter"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "filius",
+    "forms": "filii, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "son"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "flumen",
+    "forms": "fluminis, n",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "n",
+    "meanings": [
+      "river"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "forte",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "by chance"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "fortis",
+    "forms": "forte",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "brave"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "forum",
+    "forms": "fori, n",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "n",
+    "meanings": [
+      "forum",
+      "market place"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "frater",
+    "forms": "fratris, m",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m",
+    "meanings": [
+      "brother"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "frustra",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "in vain"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "fugio",
+    "forms": "fugere, fugi",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "run away",
+      "flee"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "gaudeo",
+    "forms": "gaudere, gavisus sum",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "be pleased",
+      "rejoice"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "gaudium",
+    "forms": "gaudii, n",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "n",
+    "meanings": [
+      "joy",
+      "pleasure"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "gens",
+    "forms": "gentis, f",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "f",
+    "meanings": [
+      "family",
+      "tribe",
+      "race",
+      "people"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "gero",
+    "forms": "gerere, gessi, gestus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "wear (clothes)",
+      "wage (war)"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "gladius",
+    "forms": "gladii, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "sword"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "gravis",
+    "forms": "grave",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "heavy",
+      "serious"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "habeo",
+    "forms": "habere, habui, habitus",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "have",
+      "hold"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "habito",
+    "forms": "habitare, habitavi, habitatus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "live"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "heri",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "yesterday"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "hic",
+    "forms": "haec, hoc",
+    "partOfSpeech": "pronoun",
+    "meanings": [
+      "this",
+      "he",
+      "she",
+      "it"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "hodie",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "today"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "homo",
+    "forms": "hominis, m",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m",
+    "meanings": [
+      "man",
+      "human being"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "hora",
+    "forms": "horae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "hour"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "hortor",
+    "forms": "hortari, hortatus sum",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "deponent": true,
+    "meanings": [
+      "encourage",
+      "urge"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "hortus",
+    "forms": "horti, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "garden"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "hostis",
+    "forms": "hostis, m",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m",
+    "meanings": [
+      "enemy"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "iaceo",
+    "forms": "iacere, iacui",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "lie"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "iacio",
+    "forms": "iacere, ieci, iactus (in compounds -icio)",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "throw"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "iam",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "now",
+      "already"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "ianua",
+    "forms": "ianuae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "door"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "ibi",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "there"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "idem",
+    "forms": "eadem, idem",
+    "partOfSpeech": "pronoun",
+    "meanings": [
+      "the same"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "igitur",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "therefore",
+      "and so"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "ille",
+    "forms": "ilIa, illud",
+    "partOfSpeech": "pronoun",
+    "meanings": [
+      "that",
+      "he",
+      "she",
+      "it"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "imperator",
+    "forms": "imperatoris, m",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m",
+    "meanings": [
+      "emperor",
+      "general",
+      "leader"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "imperium",
+    "forms": "imperii, n",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "n",
+    "meanings": [
+      "empire",
+      "power",
+      "command"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "impero",
+    "forms": "imperare, imperavi, imperatus + dative",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "order",
+      "command"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "in",
+    "forms": "+ ablative (also used as prefix with verbs)",
+    "partOfSpeech": "preposition",
+    "meanings": [
+      "in",
+      "on"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "in",
+    "forms": "+ accusative (also used as prefix with verbs)",
+    "partOfSpeech": "preposition",
+    "meanings": [
+      "into",
+      "onto"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "incendo",
+    "forms": "incendere, incendi, incensus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "burn",
+      "set on fire"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "infelix",
+    "forms": "infelicis",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "unlucky",
+      "unhappy"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "ingens",
+    "forms": "ingentis",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "huge"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "ingredior",
+    "forms": "ingredi, ingressus sum",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "deponent": true,
+    "meanings": [
+      "enter"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "inimicus",
+    "forms": "inimici, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "enemy"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "inquit",
+    "forms": "",
+    "partOfSpeech": "verb",
+    "subtype": "irregular",
+    "meanings": [
+      "he/she says",
+      "he/she said"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "insula",
+    "forms": "insulae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "island",
+      "block of flats"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "intellego",
+    "forms": "intellegere, intellexi, intellectus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "understand",
+      "realise"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "inter",
+    "forms": "+ accusative",
+    "partOfSpeech": "preposition",
+    "meanings": [
+      "among",
+      "between"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "interea",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "meanwhile"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "interficio",
+    "forms": "interficere, interfeci, interfectus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "kill"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "intro",
+    "forms": "intrare, intravi, intratus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "enter"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "invenio",
+    "forms": "invenire, inveni, inventus",
+    "partOfSpeech": "verb",
+    "subtype": "4",
+    "meanings": [
+      "find"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "invito",
+    "forms": "invitare, invitavi, invitatus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "invite"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "ipse",
+    "forms": "ipsa, ipsum",
+    "partOfSpeech": "pronoun",
+    "meanings": [
+      "himself",
+      "herself",
+      "itself",
+      "themselves"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "ira",
+    "forms": "irae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "anger"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "iratus",
+    "forms": "irata, iratum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "angry"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "is",
+    "forms": "ea, id",
+    "partOfSpeech": "pronoun",
+    "meanings": [
+      "this",
+      "that",
+      "he",
+      "she",
+      "it",
+      "them"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "ita",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "in this way",
+      "to such an extent",
+      "so"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "itaque",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "and so",
+      "therefore"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "iter",
+    "forms": "itineris, n",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "n",
+    "meanings": [
+      "journey"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "iterum",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "again"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "iubeo",
+    "forms": "iubere, iussi, iussus",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "order"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "iuvenis",
+    "forms": "iuvenis, m",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m",
+    "meanings": [
+      "young man"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "labor",
+    "forms": "laboris, m",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m",
+    "meanings": [
+      "work",
+      "toil"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "laboro",
+    "forms": "laborare, laboravi",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "work",
+      "toil"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "lacrimo",
+    "forms": "lacrimare, lacrimavi",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "weep",
+      "cry"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "laetus",
+    "forms": "laeta, laetum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "happy"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "laudo",
+    "forms": "laudare, laudavi, laudatus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "praise"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "legio",
+    "forms": "legionis, f",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "f",
+    "meanings": [
+      "legion"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "lego",
+    "forms": "legere, legi, lectus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "read",
+      "choose"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "lentus",
+    "forms": "lenta, lentum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "slow"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "libenter",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "willingly",
+      "gladly"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "liber",
+    "forms": "libri, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "book"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "liberi",
+    "forms": "liberorum, m plural",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "children"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "libero",
+    "forms": "liberare, liberavi, liberatus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "set free"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "libertus",
+    "forms": "liberti, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "freedman",
+      "ex-slave"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "locus",
+    "forms": "loci, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "place"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "longus",
+    "forms": "longa, longum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "long"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "loquor",
+    "forms": "loqui, locutus sum",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "deponent": true,
+    "meanings": [
+      "speak",
+      "talk"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "lux",
+    "forms": "lucis, f",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "f",
+    "meanings": [
+      "light",
+      "daylight"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "magnus",
+    "forms": "magna, magnum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "big",
+      "large",
+      "great"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "malo",
+    "forms": "malle, malui",
+    "partOfSpeech": "verb",
+    "subtype": "irregular",
+    "meanings": [
+      "prefer"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "malus",
+    "forms": "mala, malum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "evil",
+      "bad"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "maneo",
+    "forms": "manere, mansi",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "remain",
+      "stay"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "manus",
+    "forms": "manus, f",
+    "partOfSpeech": "noun",
+    "subtype": "4",
+    "gender": "f",
+    "meanings": [
+      "hand",
+      "group of people"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "mare",
+    "forms": "maris, n",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "n",
+    "meanings": [
+      "sea"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "maritus",
+    "forms": "mariti, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "husband"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "mater",
+    "forms": "matris, f",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "f",
+    "meanings": [
+      "mother"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "maxime",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "very greatly"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "medius",
+    "forms": "media, medium",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "middle"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "meus",
+    "forms": "mea, meum",
+    "partOfSpeech": "pronoun",
+    "meanings": [
+      "my"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "miles",
+    "forms": "militis, m",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m",
+    "meanings": [
+      "soldier"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "minime",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "very little",
+      "least",
+      "no"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "miror",
+    "forms": "mirari, miratus sum",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "deponent": true,
+    "meanings": [
+      "wonder at",
+      "admire"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "miser",
+    "forms": "misera, miserum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "miserable",
+      "wretched",
+      "sad"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "mitto",
+    "forms": "mittere, misi, missus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "send"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "modus",
+    "forms": "modi, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "manner",
+      "way",
+      "kind"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "moneo",
+    "forms": "monere, monui, monitus",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "warn",
+      "advise"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "mons",
+    "forms": "montis, m",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m",
+    "meanings": [
+      "mountain"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "morior",
+    "forms": "mori, mortuus sum",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "deponent": true,
+    "meanings": [
+      "die"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "mors",
+    "forms": "mortis, f",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "f",
+    "meanings": [
+      "death"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "moveo",
+    "forms": "movere, movi, motus",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "move"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "mox",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "soon"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "multo",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "much"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "multus",
+    "forms": "multa, multum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "much",
+      "many"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "murus",
+    "forms": "muri, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "wall"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "nam",
+    "forms": "",
+    "partOfSpeech": "conjunction",
+    "indeclinable": true,
+    "meanings": [
+      "for"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "narro",
+    "forms": "narrare, narravi, narratus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "tell",
+      "relate"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "nauta",
+    "forms": "nautae, m",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "m",
+    "meanings": [
+      "sailor"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "navigo",
+    "forms": "navigare, navigavi",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "sail"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "navis",
+    "forms": "navis, f",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "f",
+    "meanings": [
+      "ship"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "-ne",
+    "forms": "",
+    "partOfSpeech": "particle",
+    "indeclinable": true,
+    "meanings": [
+      "(introduces question)"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "ne",
+    "forms": "indeclinable + subjunctive",
+    "partOfSpeech": "conjunction",
+    "meanings": [
+      "that ... not",
+      "so that ... not",
+      "that",
+      "lest"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "nec, neque",
+    "forms": "",
+    "partOfSpeech": "conjunction",
+    "indeclinable": true,
+    "meanings": [
+      "and not",
+      "nor",
+      "neither"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "neco",
+    "forms": "necare, necavi, necatus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "kill"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "nemo",
+    "forms": "nullius",
+    "partOfSpeech": "noun",
+    "subtype": "irregular",
+    "meanings": [
+      "no one",
+      "nobody"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "nescio",
+    "forms": "nescire, nescivi",
+    "partOfSpeech": "verb",
+    "subtype": "4",
+    "meanings": [
+      "not know"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "nihil",
+    "forms": "",
+    "partOfSpeech": "noun",
+    "subtype": "irregular",
+    "indeclinable": true,
+    "meanings": [
+      "nothing"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "nisi",
+    "forms": "",
+    "partOfSpeech": "conjunction",
+    "indeclinable": true,
+    "meanings": [
+      "unless",
+      "except"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "nolo",
+    "forms": "nolle, nolui",
+    "partOfSpeech": "verb",
+    "subtype": "irregular",
+    "meanings": [
+      "not want",
+      "refuse"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "nomen",
+    "forms": "nominis, n",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "n",
+    "meanings": [
+      "name"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "non",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "not"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "nonne …?",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "surely ... ?"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "nonnulli",
+    "forms": "nonnullae, nonnulla",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "some",
+      "several"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "nos",
+    "forms": "nostrum",
+    "partOfSpeech": "pronoun",
+    "meanings": [
+      "we",
+      "us"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "noster",
+    "forms": "nostra, nostrum",
+    "partOfSpeech": "pronoun",
+    "meanings": [
+      "our"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "novus",
+    "forms": "nova, novum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "new"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "nox",
+    "forms": "noctis, f",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "f",
+    "meanings": [
+      "night"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "nullus",
+    "forms": "nulla, nullum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "not any",
+      "no"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "num",
+    "forms": "",
+    "partOfSpeech": "particle",
+    "indeclinable": true,
+    "meanings": [
+      "whether"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "num ... ?",
+    "forms": "",
+    "partOfSpeech": "particle",
+    "indeclinable": true,
+    "meanings": [
+      "surely … not?"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "numquam",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "never"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "nunc",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "now"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "nuntio",
+    "forms": "nuntiare, nuntiavi, nuntiatus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "announce",
+      "report"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "nuntius",
+    "forms": "nuntii, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "messenger",
+      "message",
+      "news"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "occido",
+    "forms": "occidere, occidi, occisus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "kill"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "offero",
+    "forms": "offerre, obtuli, oblatus",
+    "partOfSpeech": "verb",
+    "subtype": "irregular",
+    "meanings": [
+      "offer"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "olim",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "once",
+      "some time ago"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "omnis",
+    "forms": "omne",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "all",
+      "every"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "opprimo",
+    "forms": "opprimere, oppressi, oppressus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "crush",
+      "overwhelm"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "oppugno",
+    "forms": "oppugnare, oppugnavi, oppugnatus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "attack"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "oro",
+    "forms": "orare, oravi, oratus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "beg"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "ostendo",
+    "forms": "ostendere, ostendi, ostentus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "show"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "paene",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "almost",
+      "nearly"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "paro",
+    "forms": "parare, paravi, paratus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "prepare",
+      "provide"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "pars",
+    "forms": "partis, f",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "f",
+    "meanings": [
+      "part"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "parvus",
+    "forms": "parva, parvum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "small"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "pater",
+    "forms": "patris, m",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m",
+    "meanings": [
+      "father"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "patior",
+    "forms": "pati, passus sum",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "deponent": true,
+    "meanings": [
+      "suffer",
+      "endure"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "patria",
+    "forms": "patriae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "country",
+      "homeland"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "pauci",
+    "forms": "paucae, pauca",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "plural   few",
+      "a few"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "pax",
+    "forms": "pacis, f",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "f",
+    "meanings": [
+      "peace"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "pecunia",
+    "forms": "pecuniae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "money"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "pello",
+    "forms": "pellere, pepuli, pulsus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "drive"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "per",
+    "forms": "+ accusative",
+    "partOfSpeech": "preposition",
+    "meanings": [
+      "through",
+      "along"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "pereo",
+    "forms": "perire, perii",
+    "partOfSpeech": "verb",
+    "subtype": "irregular",
+    "meanings": [
+      "die",
+      "perish"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "periculum",
+    "forms": "periculi, n",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "n",
+    "meanings": [
+      "danger"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "persuadeo",
+    "forms": "persuadere, persuasi + dative",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "persuade"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "perterritus",
+    "forms": "perterrita, perterritum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "terrified"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "pes",
+    "forms": "pedis, m",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m",
+    "meanings": [
+      "foot"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "peto",
+    "forms": "petere, petivi, petitus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "make for",
+      "seek",
+      "beg/ask for"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "poena",
+    "forms": "poenae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "punishment"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "poenas do",
+    "forms": "",
+    "partOfSpeech": "phrase",
+    "meanings": [
+      "pay the penalty",
+      "be punished"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "pono",
+    "forms": "ponere, posui, positus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "put",
+      "place",
+      "set up"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "porta",
+    "forms": "portae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "gate"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "porto",
+    "forms": "portare, portavi, portatus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "carry",
+      "bear",
+      "take"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "possum",
+    "forms": "posse, potui",
+    "partOfSpeech": "verb",
+    "subtype": "irregular",
+    "meanings": [
+      "can",
+      "be able"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "post",
+    "forms": "+ accusative",
+    "partOfSpeech": "preposition",
+    "meanings": [
+      "after",
+      "behind"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "postea",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "afterwards"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "postquam",
+    "forms": "",
+    "partOfSpeech": "conjunction",
+    "indeclinable": true,
+    "meanings": [
+      "after",
+      "when"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "postridie",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "on the next day"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "praemium",
+    "forms": "praemii, n",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "n",
+    "meanings": [
+      "prize",
+      "reward",
+      "profit"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "primo",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "at first"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "primus",
+    "forms": "prima, primum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "first"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "princeps",
+    "forms": "principis, m",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m",
+    "meanings": [
+      "chief",
+      "emperor"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "pro",
+    "forms": "+ ablative",
+    "partOfSpeech": "preposition",
+    "meanings": [
+      "in front of",
+      "for",
+      "in return for"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "procedo",
+    "forms": "procedere, processi",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "advance",
+      "proceed"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "proelium",
+    "forms": "proelii, n",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "n",
+    "meanings": [
+      "battle"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "proficiscor",
+    "forms": "proficisci, profectus sum",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "deponent": true,
+    "meanings": [
+      "set out"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "progredior",
+    "forms": "progredi, progressus sum",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "deponent": true,
+    "meanings": [
+      "advance"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "promitto",
+    "forms": "promittere, promisi, promissus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "promise"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "prope",
+    "forms": "+ accusative",
+    "partOfSpeech": "preposition",
+    "meanings": [
+      "near"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "propter",
+    "forms": "+ accusative",
+    "partOfSpeech": "preposition",
+    "meanings": [
+      "on account of",
+      "because of"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "proximus",
+    "forms": "proxima, proximum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "nearest",
+      "next to"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "puella",
+    "forms": "puellae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "girl"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "puer",
+    "forms": "pueri, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "boy"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "pugno",
+    "forms": "pugnare, pugnavi",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "fight"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "pulcher",
+    "forms": "pulchra, pulchrum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "beautiful",
+      "handsome"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "punio",
+    "forms": "punire, punivi, punitus",
+    "partOfSpeech": "verb",
+    "subtype": "4",
+    "meanings": [
+      "punish"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "puto",
+    "forms": "putare, putavi, putatus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "think"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "quaero",
+    "forms": "quaerere, quaesivi, quaesitus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "search for",
+      "look for",
+      "ask"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "qualis?",
+    "forms": "quale",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "what sort of?"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "quam",
+    "forms": "+ superlative adverb",
+    "partOfSpeech": "adverb",
+    "meanings": [
+      "as … as possible"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "quam",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "than",
+      "how … ? how … !"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "quamquam",
+    "forms": "",
+    "partOfSpeech": "conjunction",
+    "indeclinable": true,
+    "meanings": [
+      "although"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "quando?",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "when?"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "quantus?",
+    "forms": "quanta? quantum?",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "how big? how much?"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "-que",
+    "forms": "",
+    "partOfSpeech": "conjunction",
+    "indeclinable": true,
+    "meanings": [
+      "and"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "qui",
+    "forms": "quae, quod",
+    "partOfSpeech": "pronoun",
+    "meanings": [
+      "who",
+      "which"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "quidam",
+    "forms": "quaedam, quoddam",
+    "partOfSpeech": "pronoun",
+    "meanings": [
+      "one",
+      "a certain",
+      "some"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "quis?",
+    "forms": "quid?",
+    "partOfSpeech": "pronoun",
+    "meanings": [
+      "who? what?"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "quo?",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "to where?"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "quod",
+    "forms": "",
+    "partOfSpeech": "conjunction",
+    "indeclinable": true,
+    "meanings": [
+      "because"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "quomodo?",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "how?"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "quoque",
+    "forms": "",
+    "partOfSpeech": "conjunction",
+    "indeclinable": true,
+    "meanings": [
+      "also",
+      "too"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "quot?",
+    "forms": "",
+    "partOfSpeech": "adjective",
+    "indeclinable": true,
+    "meanings": [
+      "how many?"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "rapio",
+    "forms": "rapere, rapui, raptus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "seize",
+      "grab"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "re-",
+    "forms": "(prefix used with verbs)",
+    "partOfSpeech": "prefix",
+    "meanings": [
+      "- back"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "reddo",
+    "forms": "reddere, reddidi, redditus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "give back",
+      "restore"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "redeo",
+    "forms": "redire, redii",
+    "partOfSpeech": "verb",
+    "subtype": "irregular",
+    "meanings": [
+      "go back",
+      "come back",
+      "return"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "refero",
+    "forms": "referre, rettuli, relatus",
+    "partOfSpeech": "verb",
+    "subtype": "irregular",
+    "meanings": [
+      "bring/carry back",
+      "report",
+      "tell"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "regina",
+    "forms": "reginae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "queen"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "regnum",
+    "forms": "regni, n",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "n",
+    "meanings": [
+      "kingdom"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "rego",
+    "forms": "regere, rexi, rectus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "rule"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "regredior",
+    "forms": "regredi, regressus sum",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "deponent": true,
+    "meanings": [
+      "go back",
+      "return"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "relinquo",
+    "forms": "relinquere, reliqui, relictus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "leave",
+      "leave behind"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "res",
+    "forms": "rei, f",
+    "partOfSpeech": "noun",
+    "subtype": "5",
+    "gender": "f",
+    "meanings": [
+      "thing",
+      "matter",
+      "event"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "resisto",
+    "forms": "resistere, restiti + dative",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "resist"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "respondeo",
+    "forms": "respondere, respondi, responsus",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "reply"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "rex",
+    "forms": "regis, m",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m",
+    "meanings": [
+      "king"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "rideo",
+    "forms": "ridere, risi",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "laugh",
+      "smile"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "rogo",
+    "forms": "rogare, rogavi, rogatus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "ask",
+      "ask for"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "Roma",
+    "forms": "Romae, f (Romae: at/in Rome)",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "Rome"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "Romanus",
+    "forms": "Romana, Romanum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "Roman"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "sacer",
+    "forms": "sacra, sacrum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "sacred"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "saepe",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "often"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "saevus",
+    "forms": "saeva, saevum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "savage",
+      "cruel"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "saluto",
+    "forms": "salutare, salutavi, salutatus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "greet"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "sanguis",
+    "forms": "sanguinis, m",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m",
+    "meanings": [
+      "blood"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "scelestus",
+    "forms": "scelesta, scelestum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "wicked"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "scelus",
+    "forms": "sceleris, n",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "n",
+    "meanings": [
+      "crime"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "scio",
+    "forms": "scire, scivi, scitus",
+    "partOfSpeech": "verb",
+    "subtype": "4",
+    "meanings": [
+      "know"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "scribo",
+    "forms": "scribere, scripsi, scriptus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "write"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "se",
+    "forms": "sui",
+    "partOfSpeech": "pronoun",
+    "meanings": [
+      "himself",
+      "herself",
+      "itself",
+      "themselves"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "sed",
+    "forms": "",
+    "partOfSpeech": "conjunction",
+    "indeclinable": true,
+    "meanings": [
+      "but"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "sedeo",
+    "forms": "sedere, sedi",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "sit"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "semper",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "always"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "senator",
+    "forms": "senatoris, m",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m",
+    "meanings": [
+      "senator"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "senex",
+    "forms": "senis, m",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "m",
+    "meanings": [
+      "old man"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "sentio",
+    "forms": "sentire, sensi, sensus",
+    "partOfSpeech": "verb",
+    "subtype": "4",
+    "meanings": [
+      "feel",
+      "notice"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "sequor",
+    "forms": "sequi, secutus sum",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "deponent": true,
+    "meanings": [
+      "follow"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "servo",
+    "forms": "servare, servavi, servatus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "save",
+      "protect",
+      "keep"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "servus",
+    "forms": "servi, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "slave"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "si",
+    "forms": "",
+    "partOfSpeech": "conjunction",
+    "indeclinable": true,
+    "meanings": [
+      "if"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "sic",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "thus",
+      "in this way"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "silva",
+    "forms": "silvae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "wood"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "simul",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "at the same time"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "simulac, simulatque",
+    "forms": "",
+    "partOfSpeech": "conjunction",
+    "indeclinable": true,
+    "meanings": [
+      "as soon as"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "sine",
+    "forms": "+ ablative",
+    "partOfSpeech": "preposition",
+    "meanings": [
+      "without"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "soleo",
+    "forms": "solere, solitus sum",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "be accustomed"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "solus",
+    "forms": "sola, solum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "alone",
+      "lonely",
+      "only",
+      "on one's own"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "specto",
+    "forms": "spectare, spectavi, spectatus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "look at",
+      "watch"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "spero",
+    "forms": "sperare, speravi, speratus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "hope",
+      "expect"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "spes",
+    "forms": "spei, f",
+    "partOfSpeech": "noun",
+    "subtype": "5",
+    "gender": "f",
+    "meanings": [
+      "hope"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "statim",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "at once",
+      "immediately"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "sto",
+    "forms": "stare, steti",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "stand"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "stultus",
+    "forms": "stulta, stultum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "stupid",
+      "foolish"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "sub",
+    "forms": "+ accusative/ablative",
+    "partOfSpeech": "preposition",
+    "meanings": [
+      "under",
+      "beneath"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "subito",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "suddenly"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "sum",
+    "forms": "esse, fui",
+    "partOfSpeech": "verb",
+    "subtype": "irregular",
+    "meanings": [
+      "be"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "summus",
+    "forms": "summa, summum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "highest",
+      "greatest",
+      "top (of)"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "supero",
+    "forms": "superare, superavi, superatus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "overcome",
+      "overpower"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "surgo",
+    "forms": "surgere, surrexi",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "get up",
+      "stand up",
+      "rise"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "suus",
+    "forms": "sua, suum",
+    "partOfSpeech": "pronoun",
+    "meanings": [
+      "his",
+      "her",
+      "its",
+      "their (own)"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "taberna",
+    "forms": "tabernae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "shop",
+      "inn"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "taceo",
+    "forms": "tacere, tacui, tacitus",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "be silent",
+      "be quiet"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "talis",
+    "forms": "tale",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "such",
+      "of such a kind"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "tam",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "so"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "tamen",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "however"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "tandem",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "at last",
+      "finally"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "tantus",
+    "forms": "tanta, tantum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "so great",
+      "such a great"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "tempestas",
+    "forms": "tempestatis, f",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "f",
+    "meanings": [
+      "storm"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "templum",
+    "forms": "templi, n",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "n",
+    "meanings": [
+      "temple"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "tempus",
+    "forms": "temporis, n",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "n",
+    "meanings": [
+      "time"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "teneo",
+    "forms": "tenere, tenui, tentus",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "hold"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "terra",
+    "forms": "terrae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "ground",
+      "land",
+      "country"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "terreo",
+    "forms": "terrere, terrui, territus",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "frighten"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "timeo",
+    "forms": "timere, timui",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "fear",
+      "be afraid"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "tollo",
+    "forms": "tollere, sustuli, sublatus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "raise",
+      "lift up",
+      "hold up"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "tot",
+    "forms": "",
+    "partOfSpeech": "adjective",
+    "indeclinable": true,
+    "meanings": [
+      "so many"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "totus",
+    "forms": "tota, totum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "whole"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "trado",
+    "forms": "tradere, tradidi, traditus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "hand over",
+      "hand down"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "traho",
+    "forms": "trahere, traxi, tractus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "drag"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "trans",
+    "forms": "+ accusative (also used as prefix with verbs)",
+    "partOfSpeech": "preposition",
+    "meanings": [
+      "across"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "tristis",
+    "forms": "triste",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "sad"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "tu",
+    "forms": "tui",
+    "partOfSpeech": "pronoun",
+    "meanings": [
+      "you (singular)"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "tum",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "then"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "turba",
+    "forms": "turbae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "crowd"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "tuus",
+    "forms": "tua, tuum",
+    "partOfSpeech": "pronoun",
+    "meanings": [
+      "your (singular)",
+      "yours"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "ubi",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "where? where",
+      "when"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "umquam",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "ever"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "unde?",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "from where?"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "urbs",
+    "forms": "urbis, f",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "f",
+    "meanings": [
+      "city"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "ut",
+    "forms": "indeclinable + subjunctive",
+    "partOfSpeech": "conjunction",
+    "meanings": [
+      "that",
+      "so that",
+      "in order that"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "ut",
+    "forms": "indeclinable + indicative",
+    "partOfSpeech": "conjunction",
+    "meanings": [
+      "as",
+      "when"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "uxor",
+    "forms": "uxoris, f",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "f",
+    "meanings": [
+      "wife"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "validus",
+    "forms": "valida, validum",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "strong"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "vehementer",
+    "forms": "",
+    "partOfSpeech": "adverb",
+    "indeclinable": true,
+    "meanings": [
+      "violently",
+      "loudly"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "vendo",
+    "forms": "vendere, vendidi, venditus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "sell"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "venio",
+    "forms": "venire, veni",
+    "partOfSpeech": "verb",
+    "subtype": "4",
+    "meanings": [
+      "come"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "verbum",
+    "forms": "verbi, n",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "n",
+    "meanings": [
+      "word"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "verto",
+    "forms": "vertere, verti, versus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "turn"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "vester",
+    "forms": "vestra, vestrum",
+    "partOfSpeech": "pronoun",
+    "meanings": [
+      "your (plural)",
+      "yours"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "via",
+    "forms": "viae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "street",
+      "road",
+      "way"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "victoria",
+    "forms": "victoriae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "victory"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "video",
+    "forms": "videre, vidi, visus",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "meanings": [
+      "see"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "videor",
+    "forms": "videri, visus sum",
+    "partOfSpeech": "verb",
+    "subtype": "2",
+    "deponent": true,
+    "meanings": [
+      "seem",
+      "appear"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "villa",
+    "forms": "villae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "house",
+      "country villa"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "vinco",
+    "forms": "vincere, vici, victus",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "conquer",
+      "win",
+      "be victorious"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "vinum",
+    "forms": "vini, n",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "n",
+    "meanings": [
+      "wine"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "vir",
+    "forms": "viri, m",
+    "partOfSpeech": "noun",
+    "subtype": "2",
+    "gender": "m",
+    "meanings": [
+      "man"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "virtus",
+    "forms": "virtutis, f",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "f",
+    "meanings": [
+      "courage",
+      "virtue"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "vita",
+    "forms": "vitae, f",
+    "partOfSpeech": "noun",
+    "subtype": "1",
+    "gender": "f",
+    "meanings": [
+      "life"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "vivo",
+    "forms": "vivere, vixi",
+    "partOfSpeech": "verb",
+    "subtype": "3",
+    "meanings": [
+      "live",
+      "be alive"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "voco",
+    "forms": "vocare, vocavi, vocatus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "call"
+    ],
+    "isRestricted": true
+  },
+  {
+    "latin": "volo",
+    "forms": "velle, volui",
+    "partOfSpeech": "verb",
+    "subtype": "irregular",
+    "meanings": [
+      "want",
+      "wish",
+      "be willing"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "vos",
+    "forms": "vestrum",
+    "partOfSpeech": "pronoun",
+    "meanings": [
+      "you (plural)"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "vox",
+    "forms": "vocis, f",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "f",
+    "meanings": [
+      "voice",
+      "shout"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "vulnero",
+    "forms": "vulnerare, vulneravi, vulneratus",
+    "partOfSpeech": "verb",
+    "subtype": "1",
+    "meanings": [
+      "wound",
+      "injure"
+    ],
+    "isRestricted": false
+  },
+  {
+    "latin": "vulnus",
+    "forms": "vulneris, n",
+    "partOfSpeech": "noun",
+    "subtype": "3",
+    "gender": "n",
+    "meanings": [
+      "wound"
+    ],
+    "isRestricted": false
+  }
+]
