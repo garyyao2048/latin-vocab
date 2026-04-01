@@ -2,7 +2,7 @@ export default function ConjugationsPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
       <h1 className="text-2xl font-bold text-accent mb-2">Verb Conjugation Tables</h1>
-      <p className="text-sm text-foreground/60 mb-8">Present, imperfect, perfect, and pluperfect tenses &mdash; active indicative</p>
+      <p className="text-sm text-foreground/60 mb-8">Present, future, imperfect, perfect, future perfect, and pluperfect tenses &mdash; active indicative</p>
 
       {/* Present Active */}
       <section className="mb-10">
@@ -17,6 +17,23 @@ export default function ConjugationsPage() {
             ['1st pl', 'port-amus', 'mon-emus', 'reg-imus', 'aud-imus', 'cap-imus'],
             ['2nd pl', 'port-atis', 'mon-etis', 'reg-itis', 'aud-itis', 'cap-itis'],
             ['3rd pl', 'port-ant', 'mon-ent', 'reg-unt', 'audi-unt', 'capi-unt'],
+          ]}
+        />
+      </section>
+
+      {/* Future Active */}
+      <section className="mb-10">
+        <h2 className="text-xl font-semibold mb-3">Future Active Indicative</h2>
+        <p className="text-sm text-foreground/50 mb-3">&ldquo;I will carry&rdquo; &mdash; 1st/2nd use <span className="font-mono">-bi-</span>, 3rd/4th use <span className="font-mono">-a-/-e-</span></p>
+        <ConjTable
+          headers={['', '1st (porto)', '2nd (moneo)', '3rd (rego)', '4th (audio)', 'Mixed 3rd (capio)']}
+          rows={[
+            ['1st sg', 'port-abo', 'mon-ebo', 'reg-am', 'audi-am', 'capi-am'],
+            ['2nd sg', 'port-abis', 'mon-ebis', 'reg-es', 'audi-es', 'capi-es'],
+            ['3rd sg', 'port-abit', 'mon-ebit', 'reg-et', 'audi-et', 'capi-et'],
+            ['1st pl', 'port-abimus', 'mon-ebimus', 'reg-emus', 'audi-emus', 'capi-emus'],
+            ['2nd pl', 'port-abitis', 'mon-ebitis', 'reg-etis', 'audi-etis', 'capi-etis'],
+            ['3rd pl', 'port-abunt', 'mon-ebunt', 'reg-ent', 'audi-ent', 'capi-ent'],
           ]}
         />
       </section>
@@ -55,6 +72,23 @@ export default function ConjugationsPage() {
         />
       </section>
 
+      {/* Future Perfect Active */}
+      <section className="mb-10">
+        <h2 className="text-xl font-semibold mb-3">Future Perfect Active Indicative</h2>
+        <p className="text-sm text-foreground/50 mb-3">&ldquo;I will have carried&rdquo; &mdash; perfect stem + eri- (NB: 3rd pl <span className="font-mono">-erint</span>)</p>
+        <ConjTable
+          headers={['', '1st (portav-)', '2nd (monu-)', '3rd (rex-)', '4th (audiv-)']}
+          rows={[
+            ['1st sg', 'portav-ero', 'monu-ero', 'rex-ero', 'audiv-ero'],
+            ['2nd sg', 'portav-eris', 'monu-eris', 'rex-eris', 'audiv-eris'],
+            ['3rd sg', 'portav-erit', 'monu-erit', 'rex-erit', 'audiv-erit'],
+            ['1st pl', 'portav-erimus', 'monu-erimus', 'rex-erimus', 'audiv-erimus'],
+            ['2nd pl', 'portav-eritis', 'monu-eritis', 'rex-eritis', 'audiv-eritis'],
+            ['3rd pl', 'portav-erint', 'monu-erint', 'rex-erint', 'audiv-erint'],
+          ]}
+        />
+      </section>
+
       {/* Pluperfect Active */}
       <section className="mb-10">
         <h2 className="text-xl font-semibold mb-3">Pluperfect Active Indicative</h2>
@@ -76,14 +110,14 @@ export default function ConjugationsPage() {
       <section className="mb-10">
         <h2 className="text-xl font-semibold mb-3">Irregular: <em>sum, esse</em> (to be)</h2>
         <ConjTable
-          headers={['', 'Present', 'Imperfect', 'Perfect', 'Pluperfect']}
+          headers={['', 'Present', 'Future', 'Imperfect', 'Perfect', 'Fut. Perf.', 'Pluperfect']}
           rows={[
-            ['1st sg', 'sum', 'eram', 'fui', 'fueram'],
-            ['2nd sg', 'es', 'eras', 'fuisti', 'fueras'],
-            ['3rd sg', 'est', 'erat', 'fuit', 'fuerat'],
-            ['1st pl', 'sumus', 'eramus', 'fuimus', 'fueramus'],
-            ['2nd pl', 'estis', 'eratis', 'fuistis', 'fueratis'],
-            ['3rd pl', 'sunt', 'erant', 'fuerunt', 'fuerant'],
+            ['1st sg', 'sum', 'ero', 'eram', 'fui', 'fuero', 'fueram'],
+            ['2nd sg', 'es', 'eris', 'eras', 'fuisti', 'fueris', 'fueras'],
+            ['3rd sg', 'est', 'erit', 'erat', 'fuit', 'fuerit', 'fuerat'],
+            ['1st pl', 'sumus', 'erimus', 'eramus', 'fuimus', 'fuerimus', 'fueramus'],
+            ['2nd pl', 'estis', 'eritis', 'eratis', 'fuistis', 'fueritis', 'fueratis'],
+            ['3rd pl', 'sunt', 'erunt', 'erant', 'fuerunt', 'fuerint', 'fuerant'],
           ]}
         />
       </section>
@@ -92,14 +126,14 @@ export default function ConjugationsPage() {
       <section className="mb-10">
         <h2 className="text-xl font-semibold mb-3">Irregular: <em>possum, posse</em> (to be able)</h2>
         <ConjTable
-          headers={['', 'Present', 'Imperfect', 'Perfect', 'Pluperfect']}
+          headers={['', 'Present', 'Future', 'Imperfect', 'Perfect', 'Fut. Perf.', 'Pluperfect']}
           rows={[
-            ['1st sg', 'possum', 'poteram', 'potui', 'potueram'],
-            ['2nd sg', 'potes', 'poteras', 'potuisti', 'potueras'],
-            ['3rd sg', 'potest', 'poterat', 'potuit', 'potuerat'],
-            ['1st pl', 'possumus', 'poteramus', 'potuimus', 'potueramus'],
-            ['2nd pl', 'potestis', 'poteratis', 'potuistis', 'potueratis'],
-            ['3rd pl', 'possunt', 'poterant', 'potuerunt', 'potuerant'],
+            ['1st sg', 'possum', 'potero', 'poteram', 'potui', 'potuero', 'potueram'],
+            ['2nd sg', 'potes', 'poteris', 'poteras', 'potuisti', 'potueris', 'potueras'],
+            ['3rd sg', 'potest', 'poterit', 'poterat', 'potuit', 'potuerit', 'potuerat'],
+            ['1st pl', 'possumus', 'poterimus', 'poteramus', 'potuimus', 'potuerimus', 'potueramus'],
+            ['2nd pl', 'potestis', 'poteritis', 'poteratis', 'potuistis', 'potueritis', 'potueratis'],
+            ['3rd pl', 'possunt', 'poterunt', 'poterant', 'potuerunt', 'potuerint', 'potuerant'],
           ]}
         />
       </section>
@@ -108,14 +142,14 @@ export default function ConjugationsPage() {
       <section className="mb-10">
         <h2 className="text-xl font-semibold mb-3">Irregular: <em>eo, ire</em> (to go)</h2>
         <ConjTable
-          headers={['', 'Present', 'Imperfect', 'Perfect', 'Pluperfect']}
+          headers={['', 'Present', 'Future', 'Imperfect', 'Perfect', 'Fut. Perf.', 'Pluperfect']}
           rows={[
-            ['1st sg', 'eo', 'ibam', 'i(v)i', 'i(v)eram'],
-            ['2nd sg', 'is', 'ibas', 'i(v)isti', 'i(v)eras'],
-            ['3rd sg', 'it', 'ibat', 'i(v)it', 'i(v)erat'],
-            ['1st pl', 'imus', 'ibamus', 'i(v)imus', 'i(v)eramus'],
-            ['2nd pl', 'itis', 'ibatis', 'i(v)istis', 'i(v)eratis'],
-            ['3rd pl', 'eunt', 'ibant', 'i(v)erunt', 'i(v)erant'],
+            ['1st sg', 'eo', 'ibo', 'ibam', 'i(v)i', 'i(v)ero', 'i(v)eram'],
+            ['2nd sg', 'is', 'ibis', 'ibas', 'i(v)isti', 'i(v)eris', 'i(v)eras'],
+            ['3rd sg', 'it', 'ibit', 'ibat', 'i(v)it', 'i(v)erit', 'i(v)erat'],
+            ['1st pl', 'imus', 'ibimus', 'ibamus', 'i(v)imus', 'i(v)erimus', 'i(v)eramus'],
+            ['2nd pl', 'itis', 'ibitis', 'ibatis', 'i(v)istis', 'i(v)eritis', 'i(v)eratis'],
+            ['3rd pl', 'eunt', 'ibunt', 'ibant', 'i(v)erunt', 'i(v)erint', 'i(v)erant'],
           ]}
         />
       </section>
@@ -124,14 +158,14 @@ export default function ConjugationsPage() {
       <section className="mb-10">
         <h2 className="text-xl font-semibold mb-3">Irregular: <em>fero, ferre</em> (to carry/bear)</h2>
         <ConjTable
-          headers={['', 'Present', 'Imperfect', 'Perfect', 'Pluperfect']}
+          headers={['', 'Present', 'Future', 'Imperfect', 'Perfect', 'Fut. Perf.', 'Pluperfect']}
           rows={[
-            ['1st sg', 'fero', 'ferebam', 'tuli', 'tuleram'],
-            ['2nd sg', 'fers', 'ferebas', 'tulisti', 'tuleras'],
-            ['3rd sg', 'fert', 'ferebat', 'tulit', 'tulerat'],
-            ['1st pl', 'ferimus', 'ferebamus', 'tulimus', 'tuleramus'],
-            ['2nd pl', 'fertis', 'ferebatis', 'tulistis', 'tuleratis'],
-            ['3rd pl', 'ferunt', 'ferebant', 'tulerunt', 'tulerant'],
+            ['1st sg', 'fero', 'feram', 'ferebam', 'tuli', 'tulero', 'tuleram'],
+            ['2nd sg', 'fers', 'feres', 'ferebas', 'tulisti', 'tuleris', 'tuleras'],
+            ['3rd sg', 'fert', 'feret', 'ferebat', 'tulit', 'tulerit', 'tulerat'],
+            ['1st pl', 'ferimus', 'feremus', 'ferebamus', 'tulimus', 'tulerimus', 'tuleramus'],
+            ['2nd pl', 'fertis', 'feretis', 'ferebatis', 'tulistis', 'tuleritis', 'tuleratis'],
+            ['3rd pl', 'ferunt', 'ferent', 'ferebant', 'tulerunt', 'tulerint', 'tulerant'],
           ]}
         />
       </section>
@@ -158,8 +192,10 @@ export default function ConjugationsPage() {
         <h3 className="font-semibold mb-2">Key Patterns</h3>
         <ul className="text-sm text-foreground/70 space-y-1 list-disc list-inside">
           <li>Personal endings (active): <span className="font-mono">-o/-m, -s, -t, -mus, -tis, -nt</span></li>
+          <li>Future: 1st/2nd use <span className="font-mono">-bi-</span> (<span className="font-mono">-bo, -bis, -bit, -bimus, -bitis, -bunt</span>); 3rd/4th use <span className="font-mono">-am, -es, -et, -emus, -etis, -ent</span></li>
           <li>Imperfect sign: <span className="font-mono">-ba-</span> (1st/2nd), <span className="font-mono">-eba-</span> (3rd/4th)</li>
           <li>Perfect endings are the same for all conjugations: <span className="font-mono">-i, -isti, -it, -imus, -istis, -erunt</span></li>
+          <li>Future perfect = perfect stem + <span className="font-mono">-ero, -eris, -erit, -erimus, -eritis, -erint</span></li>
           <li>Pluperfect = perfect stem + <span className="font-mono">-eram, -eras, -erat, -eramus, -eratis, -erant</span></li>
         </ul>
       </section>
