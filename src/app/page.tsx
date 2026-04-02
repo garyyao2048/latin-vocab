@@ -42,6 +42,16 @@ export default function Home() {
         </Link>
 
         <Link
+          href="/grammar"
+          className="block p-6 rounded-xl border border-card-border bg-card-bg hover:shadow-md hover:border-accent-light transition-all"
+        >
+          <h2 className="text-xl font-semibold mb-2">Grammar Notes</h2>
+          <p className="text-sm text-foreground/60">
+            20 revision notes covering nouns, adjectives, participles, subjunctive, clauses, and more.
+          </p>
+        </Link>
+
+        <Link
           href="/declensions"
           className="block p-6 rounded-xl border border-card-border bg-card-bg hover:shadow-md hover:border-accent-light transition-all"
         >
