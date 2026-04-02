@@ -3,6 +3,7 @@
 import { useState, useMemo, useRef, useEffect } from 'react';
 import { vocabLists, getWordsForLists } from '@/data/lists';
 import { VocabEntry } from '@/data/vocab';
+import { saveQuizSession, updateWordProgress } from '@/lib/progress';
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -82,7 +83,24 @@ export default function PracticePage() {
 
   const allReviewed = answers.length > 0 && answers.every((a) => a.correct !== null);
   const correctCount = answers.filter((a) => a.correct === true).length;
+  const savedRef = useRef(false);
   const currentWord = words[currentIndex];
+
+  useEffect(() => {
+    if (allReviewed && !savedRef.current) {
+      savedRef.current = true;
+      saveQuizSession({
+        mode: 'practice',
+        direction,
+        listsUsed: selectedLists,
+        totalQuestions: answers.length,
+        correctAnswers: correctCount,
+      });
+      updateWordProgress(
+        answers.map((a) => ({ latin: a.word.latin, correct: a.correct === true }))
+      );
+    }
+  }, [allReviewed, direction, selectedLists, answers, correctCount]);
 
   // Phase: pick lists
   if (phase === 'pick') {

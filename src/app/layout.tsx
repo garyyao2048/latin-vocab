@@ -50,6 +50,9 @@ export default function RootLayout({
               <Link href="/grammar" className="hover:text-accent transition-colors">
                 Grammar
               </Link>
+              <Link href="/progress" className="hover:text-accent transition-colors">
+                Progress
+              </Link>
               <Link href="/conjugations" className="hover:text-accent transition-colors">
                 Conjugations
               </Link>

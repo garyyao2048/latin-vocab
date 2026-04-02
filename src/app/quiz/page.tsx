@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useRef } from 'react';
 import { vocab } from '@/data/vocab';
 import { vocabLists, getWordsForLists } from '@/data/lists';
+import { saveQuizSession, updateWordProgress } from '@/lib/progress';
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -55,21 +56,37 @@ export default function QuizPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [questionIndex, current, correctAnswer, allMeanings]);
 
+  const wordResults = useRef<{ latin: string; correct: boolean }[]>([]);
+
   const handleSelect = useCallback(
     (option: string) => {
       if (selected) return;
       setSelected(option);
       setTotal((t) => t + 1);
-      if (option === correctAnswer) {
+      const isCorrect = option === correctAnswer;
+      if (isCorrect) {
         setScore((s) => s + 1);
       }
+      wordResults.current.push({ latin: current.latin, correct: isCorrect });
     },
-    [selected, correctAnswer]
+    [selected, correctAnswer, current]
   );
 
   const next = () => {
     setSelected(null);
-    setQuestionIndex((i) => i + 1);
+    const nextIdx = questionIndex + 1;
+    if (nextIdx >= filtered.length) {
+      // End of quiz — save to Supabase
+      saveQuizSession({
+        mode: 'quiz',
+        direction,
+        listsUsed: selectedLists,
+        totalQuestions: total,
+        correctAnswers: score,
+      });
+      updateWordProgress(wordResults.current);
+    }
+    setQuestionIndex(nextIdx);
   };
 
   const restart = () => {
@@ -78,6 +95,7 @@ export default function QuizPage() {
     setScore(0);
     setTotal(0);
     setSelected(null);
+    wordResults.current = [];
   };
 
   // List picker
