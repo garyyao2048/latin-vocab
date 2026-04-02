@@ -5,15 +5,23 @@ import { useState } from 'react';
 const TOPICS = [
   { id: 'nouns', label: 'Nouns' },
   { id: 'adjectives', label: 'Adjectives' },
+  { id: 'adverbs', label: 'Adverbs' },
+  { id: 'pronouns', label: 'Pronouns' },
+  { id: 'prepositions', label: 'Prepositions' },
+  { id: 'verbs', label: 'Verb Basics' },
+  { id: 'infinitives', label: 'Infinitives' },
+  { id: 'deponents', label: 'Deponent Verbs' },
   { id: 'participles', label: 'Participles' },
   { id: 'passives', label: 'Passives' },
   { id: 'subjunctive', label: 'Subjunctive' },
   { id: 'imperatives', label: 'Imperatives' },
   { id: 'clauses', label: 'Clauses' },
+  { id: 'conditionals', label: 'Conditionals' },
   { id: 'future', label: 'Future Tenses' },
   { id: 'gerundive', label: 'Gerundive' },
   { id: 'ablabs', label: 'Ablative Absolute' },
   { id: 'indirect', label: 'Indirect Speech' },
+  { id: 'appendix', label: 'Quick Reference' },
 ] as const;
 
 export default function GrammarPage() {
@@ -51,6 +59,14 @@ export default function GrammarPage() {
       <div className="space-y-8">
         {(!active || active === 'nouns') && <NounRevision />}
         {(!active || active === 'adjectives') && <AdjectivesOverview />}
+        {(!active || active === 'adjectives') && <ComparativeAdjectives />}
+        {(!active || active === 'adjectives') && <SuperlativeAdjectives />}
+        {(!active || active === 'adverbs') && <AdverbsNotes />}
+        {(!active || active === 'pronouns') && <PronounsNotes />}
+        {(!active || active === 'prepositions') && <PrepositionsNotes />}
+        {(!active || active === 'verbs') && <PersonalEndingsAndStems />}
+        {(!active || active === 'infinitives') && <InfinitivesNotes />}
+        {(!active || active === 'deponents') && <DeponentVerbsNotes />}
         {(!active || active === 'participles') && <PresentParticipleNotes />}
         {(!active || active === 'participles') && <PerfectPassiveParticiples />}
         {(!active || active === 'participles') && <PAPNotes />}
@@ -58,17 +74,23 @@ export default function GrammarPage() {
         {(!active || active === 'participles') && <ParticiplesRevision />}
         {(!active || active === 'passives') && <PassivesSummary />}
         {(!active || active === 'subjunctive') && <SubjunctiveNotes />}
+        {(!active || active === 'subjunctive') && <PresentSubjunctiveNotes />}
+        {(!active || active === 'subjunctive') && <PerfectSubjunctiveNotes />}
         {(!active || active === 'subjunctive') && <SubjunctiveTables />}
+        {(!active || active === 'subjunctive') && <SequenceOfTenses />}
         {(!active || active === 'imperatives') && <ImperativesNotes />}
         {(!active || active === 'clauses') && <PurposeClauses />}
         {(!active || active === 'clauses') && <ResultClauses />}
         {(!active || active === 'subjunctive') && <CumSubjunctive />}
+        {(!active || active === 'conditionals') && <ConditionalSentences />}
         {(!active || active === 'future') && <FutureTense />}
         {(!active || active === 'future') && <FuturePerfect />}
         {(!active || active === 'gerundive') && <GerundiveRevision />}
         {(!active || active === 'ablabs') && <AblativeAbsolute />}
         {(!active || active === 'indirect') && <IndirectCommands />}
         {(!active || active === 'indirect') && <IndirectQuestions />}
+        {(!active || active === 'indirect') && <IndirectStatement />}
+        {(!active || active === 'appendix') && <QuickReferenceAppendix />}
       </div>
     </div>
   );
@@ -258,6 +280,357 @@ function AdjectivesOverview() {
         <li>the Masc/Fem and Neuter form: fortis, forte</li>
         <li>or the Nominative and Genitive form: ingens, ingentis, because ingens is also used for the Neuter form.</li>
       </ul>
+    </Note>
+  );
+}
+
+function ComparativeAdjectives() {
+  return (
+    <Note title="Comparative Adjectives — 'more ___'">
+      <p><strong>Comparative:</strong> The form of an adjective meaning &lsquo;more ___&rsquo; or &lsquo;___er&rsquo;. E.g. braver, more beautiful, longer.</p>
+      <p><strong>Formation:</strong> adjective stem + <span className="font-mono">-ior</span> (m/f), <span className="font-mono">-ius</span> (n) — declines like 3rd declension</p>
+
+      <T headers={['Positive', 'Meaning', 'Comparative', 'Meaning']} rows={[
+        ['longus', 'long', 'longior / longius', 'longer'],
+        ['fortis', 'brave', 'fortior / fortius', 'braver'],
+        ['felix', 'lucky', 'felicior / felicius', 'luckier'],
+        ['bonus', 'good', 'melior / melius', 'better  (IRREGULAR)'],
+        ['malus', 'bad', 'peior / peius', 'worse  (IRREGULAR)'],
+        ['magnus', 'great', 'maior / maius', 'greater  (IRREGULAR)'],
+        ['parvus', 'small', 'minor / minus', 'smaller  (IRREGULAR)'],
+        ['multus', 'many', 'plus / plures', 'more  (IRREGULAR)'],
+      ]} />
+
+      <p className="mt-3"><strong>&lsquo;Than&rsquo; — two ways:</strong> <span className="font-mono">quam</span> + same case OR ablative of comparison</p>
+      <Ex>puella altior quam puer est. — The girl is taller than the boy.</Ex>
+      <Ex>puella altior puero est. — The girl is taller than the boy. (ablative of comparison)</Ex>
+    </Note>
+  );
+}
+
+function SuperlativeAdjectives() {
+  return (
+    <Note title="Superlative Adjectives — 'most ___' / 'very ___'">
+      <p><strong>Superlative:</strong> The form of an adjective meaning &lsquo;most ___&rsquo; or &lsquo;very ___&rsquo;. E.g. bravest, most beautiful, very long.</p>
+      <p><strong>Formation:</strong> adjective stem + <span className="font-mono">-issimus/-issima/-issimum</span> — declines like <em>bonus, -a, -um</em></p>
+
+      <T headers={['Positive', 'Superlative', 'Meaning']} rows={[
+        ['longus', 'longissimus, -a, -um', 'longest / very long'],
+        ['fortis', 'fortissimus, -a, -um', 'bravest / very brave'],
+        ['felix', 'felicissimus, -a, -um', 'luckiest / very lucky'],
+        ['bonus', 'optimus, -a, -um', 'best  (IRREGULAR)'],
+        ['malus', 'pessimus, -a, -um', 'worst  (IRREGULAR)'],
+        ['magnus', 'maximus, -a, -um', 'greatest  (IRREGULAR)'],
+        ['parvus', 'minimus, -a, -um', 'smallest  (IRREGULAR)'],
+      ]} />
+
+      <p className="mt-3"><strong>Warning:</strong> Adjectives ending in <span className="font-mono">-er</span>: double the -r and add <span className="font-mono">-imus</span>. <em>pulcher</em> → <em>pulcherrimus</em> | <em>miser</em> → <em>miserrimus</em></p>
+    </Note>
+  );
+}
+
+function AdverbsNotes() {
+  return (
+    <Note title="Adverbs">
+      <p>An <strong>adverb</strong> is a word that modifies a verb (&lsquo;he runs quickly&rsquo;), an adjective (&lsquo;very brave&rsquo;) or another adverb (&lsquo;quite slowly&rsquo;). Adverbs NEVER change their ending in Latin.</p>
+
+      <p className="mt-3"><strong>Forming Adverbs from Adjectives</strong></p>
+      <T headers={['Adjective type', 'Rule', 'Adjective', 'Adverb']} rows={[
+        ['1st/2nd decl. (bonus type)', 'Change -us to -e', 'longus (long)', 'longe (far)'],
+        ['1st/2nd decl. (bonus type)', 'Change -us to -e', 'lentus (slow)', 'lente (slowly)'],
+        ['3rd decl. (fortis type)', 'Add -iter to stem', 'fortis (brave)', 'fortiter (bravely)'],
+        ['3rd decl. ending -nt', 'Add -er to stem', 'diligens', 'diligenter (carefully)'],
+      ]} />
+
+      <p className="mt-3"><strong>Comparative &amp; Superlative Adverbs</strong></p>
+      <p><strong>Comparative Adverb:</strong> &lsquo;More ___ly&rsquo;. Identical in form to the neuter comparative adjective (<span className="font-mono">-ius</span> ending). Context tells you which it is.</p>
+      <p><strong>Superlative Adverb:</strong> &lsquo;Most ___ly&rsquo; / &lsquo;very ___ly&rsquo;. Take the superlative adjective and replace <span className="font-mono">-us</span> with <span className="font-mono">-e</span>.</p>
+
+      <T headers={['Positive', 'Comparative', 'Superlative']} rows={[
+        ['bene (well)', 'melius (better)', 'optime (best)'],
+        ['male (badly)', 'peius (worse)', 'pessime (worst)'],
+        ['fortiter (bravely)', 'fortius (more bravely)', 'fortissime (most bravely)'],
+        ['longe (far)', 'longius (further)', 'longissime (furthest)'],
+        ['saepe (often)', 'saepius (more often)', 'saepissime (most often)'],
+      ]} />
+
+      <p className="mt-3"><strong>Tip:</strong> Comparative adverb = neuter comparative adjective. E.g. <em>fortius</em> = &lsquo;braver&rsquo; (adj.) OR &lsquo;more bravely&rsquo; (adv.). Ask: is it describing a noun or a verb?</p>
+
+      <p className="mt-3"><strong>Common Adverbs to Learn</strong></p>
+      <T headers={['Latin', 'English', 'Latin', 'English']} rows={[
+        ['statim', 'at once, immediately', 'iam', 'now, already'],
+        ['mox', 'soon', 'tandem', 'at last, finally'],
+        ['tum', 'then', 'deinde', 'then, next'],
+        ['olim', 'once, long ago', 'iterum', 'again'],
+        ['semper', 'always', 'numquam', 'never'],
+        ['saepe', 'often', 'subito', 'suddenly'],
+        ['tamen', 'however', 'etiam', 'also, even'],
+        ['valde', 'very', 'paene', 'almost'],
+        ['vix', 'hardly', 'frustra', 'in vain'],
+        ['forte', 'by chance', 'satis', 'enough'],
+      ]} />
+    </Note>
+  );
+}
+
+function PronounsNotes() {
+  return (
+    <Note title="Pronouns">
+      <p>A <strong>pronoun</strong> is a word used instead of a noun to avoid repetition. E.g. &lsquo;The soldier fought — he won.&rsquo; &lsquo;He&rsquo; is a pronoun replacing &lsquo;the soldier&rsquo;.</p>
+
+      <p className="mt-3"><strong>Personal Pronouns — I, you, we</strong></p>
+      <T headers={['Case', 'I/me', 'you (sg.)', 'he/she/it', 'we/us', 'you (pl.)', 'they']} rows={[
+        ['Nom.', 'ego', 'tu', 'is/ea/id', 'nos', 'vos', 'ei/eae/ea'],
+        ['Acc.', 'me', 'te', 'eum/eam/id', 'nos', 'vos', 'eos/eas/ea'],
+        ['Gen.', 'mei', 'tui', 'eius', 'nostri', 'vestri', 'eorum/earum'],
+        ['Dat.', 'mihi', 'tibi', 'ei', 'nobis', 'vobis', 'eis'],
+        ['Abl.', 'me', 'te', 'eo/ea/eo', 'nobis', 'vobis', 'eis'],
+      ]} />
+      <p><strong>Tip:</strong> Latin usually OMITS <em>ego</em> and <em>tu</em> — the verb ending tells you the person. Only use them for EMPHASIS or CONTRAST.</p>
+      <Ex>ego hoc feci, non tu! — I did this, not you! (emphasis)</Ex>
+      <p><strong>Note:</strong> <em>cum</em> attaches to personal pronouns: <em>mecum</em> (with me), <em>tecum</em> (with you), <em>nobiscum</em> (with us), <em>vobiscum</em> (with you all).</p>
+
+      <p className="mt-4"><strong>Reflexive Pronouns — myself, yourself, himself</strong></p>
+      <p>A <strong>reflexive pronoun</strong> is where the subject does the action TO THEMSELVES. E.g. &lsquo;The soldier killed himself.&rsquo; The action reflects back onto the subject.</p>
+      <p>For 1st and 2nd person, use the same personal pronouns:</p>
+      <T headers={['Person', 'Reflexive form', 'Example', 'Meaning']} rows={[
+        ['I / myself', 'me', 'me video', 'I see myself'],
+        ['you / yourself', 'te', 'te laudas', 'you praise yourself'],
+        ['we / ourselves', 'nos', 'nos defendimus', 'we defend ourselves'],
+        ['you all / yourselves', 'vos', 'vos servatis', 'you save yourselves'],
+      ]} />
+      <p>3rd person — <em>se</em> (dedicated reflexive pronoun):</p>
+      <T headers={['Case', 'Form']} rows={[
+        ['Nom.', '— (does not exist)'],
+        ['Acc.', 'se'],
+        ['Gen.', 'sui'],
+        ['Dat.', 'sibi'],
+        ['Abl.', 'se'],
+      ]} />
+      <Ex>miles se vulneravit. — The soldier wounded himself.</Ex>
+      <Ex>puella se laudat. — The girl praises herself.</Ex>
+      <Ex>milites se necaverunt. — The soldiers killed themselves.</Ex>
+      <p><strong>Warning:</strong> <em>se</em> vs <em>eum/eam</em>: &lsquo;rex se interfecit&rsquo; = the king killed HIMSELF. &lsquo;rex eum interfecit&rsquo; = the king killed HIM (someone else). Same trap as <em>suus</em> vs <em>eius</em>!</p>
+      <p><strong>Note:</strong> <em>cum</em> + <em>se</em> = <em>secum</em> (with himself/herself/themselves). <em>veni mecum</em> = come with me!</p>
+
+      <p className="mt-4"><strong>Possessive Pronouns — my, your, our</strong></p>
+      <p>Shows ownership. Must agree with the noun it describes in gender, number and case — just like a regular adjective.</p>
+      <T headers={['Person', 'Latin', 'English']} rows={[
+        ['1st sg.', 'meus, mea, meum', 'my'],
+        ['2nd sg.', 'tuus, tua, tuum', 'your (one person)'],
+        ['3rd (own)', 'suus, sua, suum', 'his own / her own / their own'],
+        ['1st pl.', 'noster, nostra, nostrum', 'our'],
+        ['2nd pl.', 'vester, vestra, vestrum', 'your (many people)'],
+      ]} />
+      <p><strong>Warning:</strong> <em>suus</em> vs <em>eius</em>: <em>suus</em> = his OWN (refers to subject). <em>eius</em> = his (someone else&apos;s). &lsquo;puer librum suum amat&rsquo; = the boy loves his own book. &lsquo;puer librum eius amat&rsquo; = the boy loves his (someone else&apos;s) book.</p>
+
+      <p className="mt-4"><strong>Demonstrative Pronouns — this, that</strong></p>
+      <p>Points to something — &lsquo;this&rsquo; (near me) or &lsquo;that&rsquo; (far away). Can also act as an adjective describing a noun.</p>
+      <p><em>hic, haec, hoc</em> — this (near me)</p>
+      <T headers={['Case', 'm.', 'f.', 'n.', 'm. pl.', 'f. pl.', 'n. pl.']} rows={[
+        ['Nom.', 'hic', 'haec', 'hoc', 'hi', 'hae', 'haec'],
+        ['Acc.', 'hunc', 'hanc', 'hoc', 'hos', 'has', 'haec'],
+        ['Gen.', 'huius', 'huius', 'huius', 'horum', 'harum', 'horum'],
+        ['Dat.', 'huic', 'huic', 'huic', 'his', 'his', 'his'],
+        ['Abl.', 'hoc', 'hac', 'hoc', 'his', 'his', 'his'],
+      ]} />
+      <p><em>ille, illa, illud</em> — that (far away)</p>
+      <T headers={['Case', 'm.', 'f.', 'n.', 'm. pl.', 'f. pl.', 'n. pl.']} rows={[
+        ['Nom.', 'ille', 'illa', 'illud', 'illi', 'illae', 'illa'],
+        ['Acc.', 'illum', 'illam', 'illud', 'illos', 'illas', 'illa'],
+        ['Gen.', 'illius', 'illius', 'illius', 'illorum', 'illarum', 'illorum'],
+        ['Dat.', 'illi', 'illi', 'illi', 'illis', 'illis', 'illis'],
+        ['Abl.', 'illo', 'illa', 'illo', 'illis', 'illis', 'illis'],
+      ]} />
+      <Ex>hic miles fortis est. — This soldier is brave.</Ex>
+      <Ex>illam feminam vidi. — I saw that woman.</Ex>
+
+      <p className="mt-4"><strong>Relative Pronouns — who, which, that</strong></p>
+      <p><em>qui, quae, quod</em> — links a subordinate clause back to a noun (the antecedent). Agrees with the antecedent in GENDER and NUMBER, but takes its CASE from its own clause.</p>
+      <T headers={['Case', 'm. sg.', 'f. sg.', 'n. sg.', 'm. pl.', 'f. pl.', 'n. pl.']} rows={[
+        ['Nom.', 'qui', 'quae', 'quod', 'qui', 'quae', 'quae'],
+        ['Acc.', 'quem', 'quam', 'quod', 'quos', 'quas', 'quae'],
+        ['Gen.', 'cuius', 'cuius', 'cuius', 'quorum', 'quarum', 'quorum'],
+        ['Dat.', 'cui', 'cui', 'cui', 'quibus', 'quibus', 'quibus'],
+        ['Abl.', 'quo', 'qua', 'quo', 'quibus', 'quibus', 'quibus'],
+      ]} />
+      <Ex>miles quem vidi fortis erat. — The soldier whom I saw was brave.</Ex>
+      <Ex>puellae quas laudavi laetae erant. — The girls whom I praised were happy.</Ex>
+      <p><strong>Tip:</strong> How to tackle: 1) Find the pronoun. 2) Find its antecedent. 3) Match gender &amp; number. 4) Find the case from INSIDE the relative clause.</p>
+
+      <p className="mt-4"><strong>Interrogative Pronouns — who? what?</strong></p>
+      <p><em>quis? quid?</em> — used to ask questions. Who? What?</p>
+      <T headers={['Case', 'm/f (who?)', 'n (what?)']} rows={[
+        ['Nom.', 'quis?', 'quid?'],
+        ['Acc.', 'quem?', 'quid?'],
+        ['Gen.', 'cuius?', 'cuius?'],
+        ['Dat.', 'cui?', 'cui?'],
+        ['Abl.', 'quo?', 'quo?'],
+      ]} />
+      <Ex>quis hoc fecit? — Who did this?</Ex>
+      <Ex>quid dicis? — What are you saying?</Ex>
+      <p>Other question words: <em>cur?</em> why? | <em>ubi?</em> where? | <em>quomodo?</em> how? | <em>quando?</em> when? | <em>quot?</em> how many?</p>
+      <p><strong>Note:</strong> <em>qui/quae/quod</em> (relative) vs <em>quis/quid</em> (interrogative): relative LINKS clauses. Interrogative ASKS questions. If there&apos;s a question mark coming — interrogative!</p>
+    </Note>
+  );
+}
+
+function PrepositionsNotes() {
+  return (
+    <Note title="Prepositions">
+      <p>A <strong>preposition</strong> is a word that shows the relationship between a noun and the rest of the sentence — where something is, where it&apos;s going, what it&apos;s because of. Every Latin preposition demands a specific case.</p>
+      <p><strong>Key Rule:</strong> Accusative = usually MOTION (going somewhere). Ablative = usually POSITION (staying somewhere).</p>
+
+      <p className="mt-3"><strong>Prepositions + Accusative</strong></p>
+      <T headers={['Latin', 'English', 'Example', 'Translation']} rows={[
+        ['ad', 'to, towards', 'ad urbem eo', 'I go to the city'],
+        ['in', 'into, onto', 'in aquam cecidit', 'he fell into the water'],
+        ['per', 'through', 'per vias currit', 'he runs through the streets'],
+        ['post', 'after, behind', 'post bellum', 'after the war'],
+        ['propter', 'because of', 'propter periculum', 'because of danger'],
+        ['trans', 'across', 'trans flumen', 'across the river'],
+        ['contra', 'against', 'contra hostes', 'against the enemies'],
+        ['ante', 'before', 'ante portam', 'in front of the gate'],
+        ['circum', 'around', 'circum muros', 'around the walls'],
+        ['inter', 'among, between', 'inter milites', 'among the soldiers'],
+        ['prope', 'near', 'prope urbem', 'near the city'],
+        ['extra', 'outside', 'extra muros', 'outside the walls'],
+        ['intra', 'inside, within', 'intra urbem', 'within the city'],
+      ]} />
+
+      <p className="mt-3"><strong>Prepositions + Ablative</strong></p>
+      <T headers={['Latin', 'English', 'Example', 'Translation']} rows={[
+        ['a/ab', 'from, by (person)', 'a domino laudatur', 'praised by the master'],
+        ['cum', 'with', 'cum amicis', 'with friends'],
+        ['de', 'from, about, down from', 'de bello', 'about the war'],
+        ['e/ex', 'out of, from', 'ex oppido', 'out of the town'],
+        ['in', 'in, on', 'in silva', 'in the wood'],
+        ['sine', 'without', 'sine aqua', 'without water'],
+        ['pro', 'on behalf of, in front of', 'pro patria', 'on behalf of the homeland'],
+        ['sub', 'under', 'sub arbore', 'under the tree'],
+      ]} />
+
+      <p className="mt-3"><strong>Warning:</strong> <em>in</em> + accusative = motion INTO. <em>in</em> + ablative = position IN. These are the same word with completely different meanings!</p>
+      <Ex>in urbem currit. — He runs INTO the city. (acc — motion)</Ex>
+      <Ex>in urbe manet. — He stays IN the city. (abl — position)</Ex>
+
+      <p className="mt-4"><strong>The Ablative Case — All Uses</strong></p>
+      <p>The most versatile case in Latin. It has multiple uses depending on context — think of it as a Swiss Army knife.</p>
+      <T headers={['Use', 'Preposition?', 'Example', 'Translation']} rows={[
+        ['Instrument (by/with a thing)', 'None', 'hasta vulneratus', 'wounded by a spear'],
+        ['Agent (by a person — passive)', 'a/ab', 'a milite occisus', 'killed by a soldier'],
+        ['With prepositions', 'cum/ex/sine/de etc.', 'cum amicis', 'with friends'],
+        ['Time when', 'None', 'prima hora', 'at the first hour'],
+        ['Time within which', 'None', 'tribus diebus', 'within three days'],
+        ['Manner (how)', 'cum (optional)', 'magna cum cura', 'with great care'],
+        ['Separation (from)', 'None / ex/ab', 'periculo liberatus', 'freed from danger'],
+        ['Description', 'None', 'vir magnae virtutis', 'a man of great courage'],
+        ['Ablative Absolute', 'None', 'urbe capta', 'the city having been captured'],
+      ]} />
+
+      <p className="mt-4"><strong>Prepositions as Verb Prefixes</strong></p>
+      <p>Many prepositions attach to verbs to change their meaning:</p>
+      <T headers={['Prefix', 'Meaning', 'Example', 'Meaning']} rows={[
+        ['ad-', 'to, towards', 'advenio', 'I arrive'],
+        ['ex-', 'out', 'exeo', 'I go out'],
+        ['in-', 'into', 'intro', 'I enter'],
+        ['trans-', 'across', 'transeo', 'I cross'],
+        ['per-', 'through', 'pervenio', 'I arrive (come through)'],
+        ['re-', 'back', 'redeo', 'I return'],
+        ['de-', 'down', 'descendo', 'I descend'],
+        ['pro-', 'forward', 'procedo', 'I proceed'],
+        ['inter-', 'between/through', 'interficio', 'I kill'],
+      ]} />
+    </Note>
+  );
+}
+
+function PersonalEndingsAndStems() {
+  return (
+    <Note title="Personal Endings & Present vs Perfect Stem">
+      <p><strong>The Four Conjugations</strong></p>
+      <T headers={['Conjugation', 'Infinitive ending', 'Example', 'Meaning']} rows={[
+        ['1st', '-are', 'amare', 'to love'],
+        ['2nd', '-ere (long e)', 'monere', 'to warn'],
+        ['3rd', '-ere (short e)', 'ducere', 'to lead'],
+        ['4th', '-ire', 'audire', 'to hear'],
+      ]} />
+
+      <p className="mt-3"><strong>Personal Endings — Who Is Doing It</strong></p>
+      <p>These endings attach to the stem and tell you the SUBJECT of the verb:</p>
+      <T headers={['Ending', 'Person', 'Example (amo)', 'Meaning']} rows={[
+        ['-o/-m', 'I (1st sg.)', 'amo', 'I love'],
+        ['-s', 'you (2nd sg.)', 'amas', 'you love'],
+        ['-t', 'he/she/it (3rd sg.)', 'amat', 'he loves'],
+        ['-mus', 'we (1st pl.)', 'amamus', 'we love'],
+        ['-tis', 'you all (2nd pl.)', 'amatis', 'you all love'],
+        ['-nt', 'they (3rd pl.)', 'amant', 'they love'],
+      ]} />
+
+      <p className="mt-3"><strong>Present Stem vs Perfect Stem</strong></p>
+      <p><strong>Present Stem:</strong> Found by taking the infinitive (2nd principal part) and removing <span className="font-mono">-re</span>. Used for: Present, Imperfect, Future.</p>
+      <p><strong>Perfect Stem:</strong> Found by taking the 3rd principal part and removing <span className="font-mono">-i</span>. Used for: Perfect, Pluperfect, Future Perfect.</p>
+
+      <T headers={['Verb', 'Infinitive', 'Present stem', '3rd part', 'Perfect stem']} rows={[
+        ['amo', 'amare', 'ama-', 'amavi', 'amav-'],
+        ['moneo', 'monere', 'mone-', 'monui', 'monu-'],
+        ['duco', 'ducere', 'duc-', 'duxi', 'dux-'],
+        ['audio', 'audire', 'audi-', 'audivi', 'audiv-'],
+        ['facio', 'facere', 'faci-', 'feci', 'fec-'],
+        ['venio', 'venire', 'veni-', 'veni', 'ven-'],
+      ]} />
+
+      <p className="mt-3"><strong>Warning:</strong> The perfect stem can change dramatically from the present stem — ALWAYS learn all 4 principal parts!</p>
+
+      <p className="mt-3"><strong>The Main Tenses</strong></p>
+      <T headers={['Tense', 'Stem used', 'Signal', 'English meaning', 'Example (amo, 3rd sg.)']} rows={[
+        ['Present', 'Present', 'plain endings', 'I love / am loving', 'amat'],
+        ['Imperfect', 'Present', '-ba-', 'I was loving / used to love', 'amabat'],
+        ['Future', 'Present', '-bi-/-bo-', 'I will love', 'amabit'],
+        ['Perfect', 'Perfect', '-i endings', 'I loved / have loved', 'amavit'],
+        ['Pluperfect', 'Perfect', '-eram endings', 'I had loved', 'amaverat'],
+      ]} />
+    </Note>
+  );
+}
+
+function InfinitivesNotes() {
+  return (
+    <Note title="Infinitives">
+      <p>The <strong>infinitive</strong> is the &lsquo;to do&rsquo; form of a verb. It has no subject and no tense of its own. Used after verbs of wanting, being able, ordering etc.</p>
+
+      <T headers={['Type', 'Formation', 'Example', 'Meaning']} rows={[
+        ['Present Active', '2nd principal part', 'amare', 'to love'],
+        ['Present Passive', 'replace -re with -ri (or -i for 3rd)', 'amari', 'to be loved'],
+        ['Perfect Active', 'perfect stem + -isse', 'amavisse', 'to have loved'],
+        ['Perfect Passive', 'PPP + esse', 'amatum esse', 'to have been loved'],
+        ['Future Active', 'PPP stem + -urus esse', 'amaturum esse', 'to be about to love'],
+      ]} />
+
+      <Ex>miles cupit vincere. — The soldier desires to conquer.</Ex>
+      <Ex>puella vult cantare. — The girl wants to sing.</Ex>
+    </Note>
+  );
+}
+
+function DeponentVerbsNotes() {
+  return (
+    <Note title="Deponent Verbs">
+      <p>A <strong>deponent verb</strong> is a verb that looks PASSIVE in form but is ACTIVE in meaning. It has no active forms at all. Think of it as wearing a passive costume.</p>
+
+      <T headers={['Latin', 'Principal Parts', 'Meaning', 'Type']} rows={[
+        ['conor', 'conari, conatus sum', 'I try', '1st dep.'],
+        ['hortor', 'hortari, hortatus sum', 'I encourage', '1st dep.'],
+        ['miror', 'mirari, miratus sum', 'I wonder at, admire', '1st dep.'],
+        ['loquor', 'loqui, locutus sum', 'I speak', '3rd dep.'],
+        ['sequor', 'sequi, secutus sum', 'I follow', '3rd dep.'],
+        ['morior', 'mori, mortuus sum', 'I die', '3rd dep.'],
+        ['proficiscor', 'proficisci, profectus sum', 'I set out', '3rd dep.'],
+        ['patior', 'pati, passus sum', 'I suffer, endure', '3rd dep.'],
+        ['egredior', 'egredi, egressus sum', 'I go out', '3rd dep.'],
+      ]} />
+
+      <Ex>milites loquti sunt. — The soldiers spoke. (looks passive — means active!)</Ex>
     </Note>
   );
 }
@@ -561,6 +934,30 @@ function SubjunctiveNotes() {
   );
 }
 
+function PresentSubjunctiveNotes() {
+  return (
+    <Note title="Present Subjunctive">
+      <p>Memory trick — <strong>&ldquo;SHE&rdquo;</strong>: 1st conjugation swaps <span className="font-mono">-a-</span> to <span className="font-mono">-e-</span>. Others add <span className="font-mono">-a-</span> after the stem.</p>
+
+      <T headers={['Conj.', 'Present Indicative', 'Present Subjunctive', 'Pattern']} rows={[
+        ['1st (amo)', 'am-a-t', 'am-e-t', '-a- swaps to -e-'],
+        ['2nd (moneo)', 'mon-e-t', 'mon-e-a-t', 'add -a-'],
+        ['3rd (duco)', 'duc-i-t', 'duc-a-t', 'add -a-'],
+        ['4th (audio)', 'aud-i-t', 'aud-i-a-t', 'add -a-'],
+      ]} />
+    </Note>
+  );
+}
+
+function PerfectSubjunctiveNotes() {
+  return (
+    <Note title="Perfect Subjunctive">
+      <p><strong>Formation:</strong> perfect stem + <span className="font-mono">-eri-</span> + personal endings</p>
+      <Ex>amaverim, amaveris, amaverit, amaverimus, amaveritis, amaverint — (I may have loved, you may have loved...)</Ex>
+    </Note>
+  );
+}
+
 function SubjunctiveTables() {
   return (
     <Note title="Subjunctive — Full Tables">
@@ -621,6 +1018,21 @@ function SubjunctiveTables() {
         <li>Passive imperfect: endings r, ris, tur, mur, mini, ntur added to the active infinitive.</li>
         <li>Passive pluperfect: words essem etc. added to the perfect participle. [essem is the imperfect subjunctive of sum; compare the normal pluperfect passive: portatus/a/um eram]</li>
       </ul>
+    </Note>
+  );
+}
+
+function SequenceOfTenses() {
+  return (
+    <Note title="Sequence of Tenses">
+      <p><strong>Sequence of Tenses:</strong> The tense of the SUBJUNCTIVE depends on the tense of the MAIN verb. Primary main verbs take primary subjunctives. Secondary main verbs take secondary subjunctives.</p>
+
+      <T headers={['Main verb tense', 'Category', 'Subj. (same time)', 'Subj. (before main verb)']} rows={[
+        ['Present, Future, Future Perfect', 'PRIMARY', 'Present Subjunctive', 'Perfect Subjunctive'],
+        ['Imperfect, Perfect, Pluperfect', 'SECONDARY', 'Imperfect Subjunctive', 'Pluperfect Subjunctive'],
+      ]} />
+
+      <p className="mt-3"><strong>Shall vs Will vs May vs Might:</strong> Normal future = &lsquo;will&rsquo;. Subjunctive present = &lsquo;may/should&rsquo;. Subjunctive imperfect = &lsquo;might/would&rsquo;. Subjunctive pluperfect = &lsquo;would have/might have&rsquo;.</p>
     </Note>
   );
 }
@@ -709,6 +1121,41 @@ function CumSubjunctive() {
       <p>When <strong>cum</strong> is followed by a subjunctive, it means <strong>when</strong>. (Do not confuse this with cum followed by a noun in the ablative, which means <strong>with</strong>).</p>
       <Ex>cum milites dormirent, captivi e carcere effugerunt.<br/>When the soldiers were sleeping, the prisoners escaped from the prison.</Ex>
       <Ex>cum Modestus ad pontem advenisset, equus constitit.<br/>When Modestus had arrived at the bridge, his horse stopped.</Ex>
+    </Note>
+  );
+}
+
+function ConditionalSentences() {
+  return (
+    <Note title="Conditional Sentences — 'If... then...'">
+      <p>A <strong>conditional sentence</strong> has two parts: the <em>si</em>-clause (protasis = &lsquo;if&rsquo;) and the main clause (apodosis = &lsquo;then&rsquo;). There are three types depending on how real or hypothetical the condition is.</p>
+      <p><strong>Protasis:</strong> The &lsquo;if&rsquo; part of a conditional sentence. Introduced by <em>si</em> (if) or <em>nisi</em> (unless).</p>
+      <p><strong>Apodosis:</strong> The &lsquo;then&rsquo; part of a conditional sentence — the consequence or result.</p>
+
+      <p className="mt-3"><strong>The Three Types</strong></p>
+      <T headers={['Type', 'Name', 'si-clause', 'Main clause', 'Key translation words']} rows={[
+        ['1', 'Open / Real', 'Indicative (any tense)', 'Indicative', "straightforward — 'if you do/did...'"],
+        ['2', 'Hypothetical (present)', 'Present Subjunctive', 'Present Subjunctive', "'were to... would...'"],
+        ['3', 'Contrary-to-fact (past)', 'Pluperfect Subjunctive', 'Pluperfect Subjunctive', "'had... would have...'"],
+      ]} />
+
+      <p className="mt-3"><strong>Type 1 — Open / Real</strong></p>
+      <p>Both verbs in the indicative. It could genuinely happen or be true.</p>
+      <Ex>si hoc facis, erras. — If you do this, you are wrong.</Ex>
+      <Ex>si pluet, manebo. — If it rains, I will stay.</Ex>
+
+      <p className="mt-3"><strong>Type 2 — Hypothetical (present)</strong></p>
+      <p>Both verbs in the present subjunctive. Imagining something that isn&apos;t actually happening.</p>
+      <Ex>si hoc facias, erres. — If you were to do this, you would be wrong.</Ex>
+      <Ex>si dives sim, multa emam. — If I were rich, I would buy many things.</Ex>
+
+      <p className="mt-3"><strong>Type 3 — Contrary to Fact (past)</strong></p>
+      <p>Both verbs in the pluperfect subjunctive. Something that definitely did NOT happen.</p>
+      <Ex>si hoc fecisses, erravisses. — If you had done this, you would have been wrong.</Ex>
+      <Ex>si venisses, laetus fuissem. — If you had come, I would have been happy.</Ex>
+
+      <p className="mt-3"><strong>Note:</strong> <em>nisi</em> = unless. Works exactly like <em>si</em> but with the condition negated. <em>nisi festinas, tardus eris</em> = Unless you hurry, you will be late.</p>
+      <p><strong>Warning:</strong> In Types 2 and 3, BOTH verbs must be subjunctive — not just the <em>si</em>-clause!</p>
     </Note>
   );
 }
@@ -889,6 +1336,111 @@ function IndirectQuestions() {
       <Ex>Cogidubnus cognovit quo modo Cephalus venenum comparavisset.</Ex>
       <Ex>Quintus scire voluit quid in templo esset.</Ex>
       <Ex>Salvius tandem intellexit quo Quintus et Dumnorix fugerent.</Ex>
+    </Note>
+  );
+}
+
+function IndirectStatement() {
+  return (
+    <Note title="Indirect Statement — Accusative + Infinitive">
+      <p><strong>Indirect Statement:</strong> Reports what someone says, thinks, knows or believes. In Latin, uses ACCUSATIVE + INFINITIVE (not a &lsquo;that&rsquo; clause). The subject of the reported statement goes into the accusative; the verb becomes an infinitive.</p>
+      <p><strong>Direct Statement:</strong> The actual words said. E.g. &lsquo;The girl is singing.&rsquo;</p>
+      <p><strong>Indirect Statement:</strong> The reported version. E.g. He says THAT the girl is singing. → <em>dicit puellam cantare.</em></p>
+
+      <p className="mt-3"><strong>Trigger verbs</strong> (verbs that cause indirect statement): <em>dico</em> (say), <em>puto</em> (think), <em>credo</em> (believe), <em>scio</em> (know), <em>sentio</em> (feel/notice), <em>video</em> (see), <em>audio</em> (hear), <em>spero</em> (hope)</p>
+
+      <T headers={['Infinitive type', 'When?', 'Formation', 'Example', 'Translation']} rows={[
+        ['Present Active', 'Same time as main verb', 'amare', 'credo puellam cantare', 'I believe the girl is singing'],
+        ['Present Passive', 'Same time', 'amari', 'dicit puellam laudari', 'He says the girl is being praised'],
+        ['Perfect Active', 'Before main verb', 'amavisse', 'credo puellam cantavisse', 'I believe the girl sang'],
+        ['Perfect Passive', 'Before main verb', 'amatum esse', 'credo puellam laudatam esse', 'I believe the girl was praised'],
+        ['Future Active', 'After main verb', 'amaturum esse', 'credo puellam cantaturum esse', 'I believe the girl will sing'],
+      ]} />
+
+      <Ex>dicit milites esse fortes. — He says that the soldiers are brave.</Ex>
+      <Ex>putabam hostes vicisse. — I thought the enemies had won.</Ex>
+      <Ex>credebant regem venturum esse. — They believed the king would come.</Ex>
+
+      <p className="mt-3"><strong>Tip:</strong> The SUBJECT of the indirect statement → ACCUSATIVE. The VERB → INFINITIVE. That&apos;s the whole formula!</p>
+      <p><strong>Warning:</strong> The accusative subject of the indirect statement often looks like the object of the main verb — don&apos;t confuse them! &lsquo;dicit PUELLAM cantare&rsquo; — <em>puellam</em> is NOT the object of <em>dicit</em>, it is the subject of <em>cantare</em>.</p>
+    </Note>
+  );
+}
+
+function QuickReferenceAppendix() {
+  return (
+    <Note title="Quick Reference Appendix">
+      <p><strong>All Constructions at a Glance</strong></p>
+      <T headers={['Construction', 'Formula', 'Trigger', 'Example', 'Translation']} rows={[
+        ['Purpose (+)', 'ut + subj.', 'motion/action verb', 'venit ut videret', 'He came to see'],
+        ['Purpose (-)', 'ne + subj.', 'motion/action verb', 'fugit ne caperetur', 'He fled not to be caught'],
+        ['Indirect Statement', 'acc. + infinitive', 'say/think/believe', 'dicit puellam cantare', 'He says the girl sings'],
+        ['Indirect Command (+)', 'ut + subj.', 'order/ask/urge', 'iussit ut veniret', 'He ordered him to come'],
+        ['Indirect Command (-)', 'ne + subj.', 'order/ask/urge', 'monuit ne fugeret', 'He warned not to flee'],
+        ['Indirect Question', 'question word + subj.', 'ask/wonder/know', 'rogavit quid fecisset', 'He asked what he had done'],
+        ['Open Conditional', 'si + indicative', 'si', 'si venis, laetus sum', 'If you come, I am happy'],
+        ['Hypothetical', 'si + pres. subj.', 'si', 'si venias, sim', 'If you were to come...'],
+        ['Contrary-to-fact', 'si + pluperf. subj.', 'si', 'si venisses, fuissem', 'If you had come...'],
+        ['Ablative Absolute', 'noun + PPP (abl.)', '—', 'urbe capta, fugerunt', 'City captured, they fled'],
+      ]} />
+
+      <p className="mt-4"><strong>Sequence of Tenses</strong></p>
+      <T headers={['Main Verb', 'Category', 'Same time', 'Before main verb']} rows={[
+        ['Present / Future / Future Perfect', 'PRIMARY', 'Present Subjunctive', 'Perfect Subjunctive'],
+        ['Imperfect / Perfect / Pluperfect', 'SECONDARY', 'Imperfect Subjunctive', 'Pluperfect Subjunctive'],
+      ]} />
+
+      <p className="mt-4"><strong>Conditional Types</strong></p>
+      <T headers={['Type', 'si-clause', 'Main clause', 'Key words', 'Example']} rows={[
+        ['Open/Real', 'Indicative', 'Indicative', 'if... (real)', 'si venis, laetus sum'],
+        ['Hypothetical', 'Pres. Subj.', 'Pres. Subj.', 'were to... would...', 'si venias, laetus sim'],
+        ['Contrary-to-fact', 'Pluperf. Subj.', 'Pluperf. Subj.', 'had... would have...', 'si venisses, fuissem'],
+      ]} />
+
+      <p className="mt-4"><strong>Irregular Verbs</strong></p>
+      <T headers={['Verb', 'Principal Parts', 'Meaning']} rows={[
+        ['sum', 'sum, esse, fui', 'I am'],
+        ['possum', 'possum, posse, potui', 'I can, I am able'],
+        ['eo', 'eo, ire, i(v)i, itum', 'I go'],
+        ['fero', 'fero, ferre, tuli, latum', 'I carry, bring'],
+        ['volo', 'volo, velle, volui', 'I want'],
+        ['nolo', 'nolo, nolle, nolui', 'I do not want'],
+        ['malo', 'malo, malle, malui', 'I prefer'],
+        ['fio', 'fio, fieri, factus sum', 'I become, I am made'],
+      ]} />
+
+      <p className="mt-4"><strong>Prepositions Summary</strong></p>
+      <T headers={['+ Accusative', 'Meaning', '+ Ablative', 'Meaning']} rows={[
+        ['ad', 'to, towards', 'a/ab', 'from, by (person)'],
+        ['in', 'into, onto', 'in', 'in, on'],
+        ['per', 'through', 'cum', 'with'],
+        ['post', 'after', 'de', 'from, about'],
+        ['propter', 'because of', 'e/ex', 'out of'],
+        ['trans', 'across', 'sine', 'without'],
+        ['contra', 'against', 'pro', 'on behalf of'],
+        ['ante', 'before', 'sub', 'under'],
+        ['circum', 'around', '—', '—'],
+        ['inter', 'among, between', '—', '—'],
+      ]} />
+
+      <p className="mt-4"><strong>Key Definitions Summary</strong></p>
+      <T headers={['Term', 'Definition']} rows={[
+        ['Declension', 'System of noun endings showing role in sentence. 5 declensions in Latin.'],
+        ['Case', 'The grammatical role of a noun, shown by its ending. 6 cases in Latin.'],
+        ['Conjugation', 'System of verb endings. 4 conjugations in Latin.'],
+        ['Indicative', 'Verb mood that states facts.'],
+        ['Subjunctive', 'Verb mood for purpose, hypotheticals, reported commands/questions.'],
+        ['Imperative', 'Command form of a verb.'],
+        ['Infinitive', "The 'to do' form of a verb. No subject or tense."],
+        ['Participle', 'Verbal adjective — must agree with its noun in gender, number, case.'],
+        ['Ablative Absolute', 'Noun + participle both in ablative, forming an independent phrase.'],
+        ['Deponent', 'Verb passive in form but active in meaning.'],
+        ['Agreement', 'Adjective must match noun in gender, number and case.'],
+        ['Antecedent', 'The noun that a relative pronoun refers back to.'],
+        ['Protasis', "The 'if' clause of a conditional sentence."],
+        ['Apodosis', "The 'then' clause of a conditional sentence."],
+        ['Sequence of Tenses', 'Rule linking subjunctive tense to main verb tense.'],
+      ]} />
     </Note>
   );
 }
