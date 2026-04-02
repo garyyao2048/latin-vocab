@@ -46,7 +46,8 @@ export default function QuizPage() {
     return [...new Set(pool.map((v) => direction === 'lat-eng' ? v.meanings : v.latin))];
   }, [filtered, direction]);
 
-  const current = filtered[questionIndex % filtered.length];
+  const finished = started && questionIndex >= filtered.length;
+  const current = finished ? filtered[0] : filtered[questionIndex];
   const correctAnswer = direction === 'lat-eng' ? current?.meanings : current?.latin;
   const prompt = direction === 'lat-eng' ? current?.latin : current?.meanings;
 
@@ -76,15 +77,18 @@ export default function QuizPage() {
     setSelected(null);
     const nextIdx = questionIndex + 1;
     if (nextIdx >= filtered.length) {
-      // End of quiz — save to Supabase
+      // End of quiz — save to Supabase using ref data (avoids stale state)
+      const results = wordResults.current;
+      const totalQ = results.length;
+      const correctQ = results.filter(r => r.correct).length;
       saveQuizSession({
         mode: 'quiz',
         direction,
         listsUsed: selectedLists,
-        totalQuestions: total,
-        correctAnswers: score,
+        totalQuestions: totalQ,
+        correctAnswers: correctQ,
       });
-      updateWordProgress(wordResults.current);
+      updateWordProgress(results);
     }
     setQuestionIndex(nextIdx);
   };
@@ -145,6 +149,44 @@ export default function QuizPage() {
           className="px-6 py-2.5 rounded-lg bg-accent text-white font-medium hover:bg-accent/90"
         >
           Start Quiz ({selectedLists.length === 0 ? 'all 450' : getWordsForLists(selectedLists).length} words)
+        </button>
+      </div>
+    );
+  }
+
+  // Quiz finished — show results
+  if (finished) {
+    const results = wordResults.current;
+    const totalQ = results.length;
+    const correctQ = results.filter(r => r.correct).length;
+    const wrong = results.filter(r => !r.correct);
+    return (
+      <div className="max-w-2xl mx-auto px-4 py-10 text-center">
+        <h1 className="text-2xl font-bold text-accent mb-4">Quiz Complete!</h1>
+        <div className="rounded-xl border border-card-border bg-card-bg p-8 mb-6">
+          <p className="text-5xl font-bold mb-2">{correctQ} / {totalQ}</p>
+          <p className="text-lg text-foreground/60">
+            {totalQ > 0 ? Math.round((correctQ / totalQ) * 100) : 0}% correct
+          </p>
+        </div>
+        {wrong.length > 0 && (
+          <div className="text-left mb-6">
+            <h2 className="font-semibold mb-3">Words to revise:</h2>
+            <div className="space-y-2">
+              {wrong.map((r, i) => {
+                const entry = filtered.find(w => w.latin === r.latin);
+                return (
+                  <div key={i} className="flex justify-between items-center px-4 py-2 rounded-lg border border-incorrect/20 bg-incorrect/5 text-sm">
+                    <span className="font-medium">{r.latin}</span>
+                    <span className="text-foreground/60">{entry?.meanings}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+        <button onClick={restart} className="px-6 py-2.5 rounded-lg bg-accent text-white font-medium hover:bg-accent/90">
+          Try Again
         </button>
       </div>
     );
