@@ -52,6 +52,16 @@ export default function Home() {
         </Link>
 
         <Link
+          href="/dictionary"
+          className="block p-6 rounded-xl border border-card-border bg-card-bg hover:shadow-md hover:border-accent-light transition-all"
+        >
+          <h2 className="text-xl font-semibold mb-2">Dictionary</h2>
+          <p className="text-sm text-foreground/60">
+            Search and browse all 450 vocabulary words with forms, types, and meanings.
+          </p>
+        </Link>
+
+        <Link
           href="/grammar"
           className="block p-6 rounded-xl border border-card-border bg-card-bg hover:shadow-md hover:border-accent-light transition-all"
         >

@@ -53,6 +53,9 @@ export default function RootLayout({
               <Link href="/progress" className="hover:text-accent transition-colors">
                 Progress
               </Link>
+              <Link href="/dictionary" className="hover:text-accent transition-colors">
+                Dictionary
+              </Link>
               <Link href="/conjugations" className="hover:text-accent transition-colors">
                 Conjugations
               </Link>
