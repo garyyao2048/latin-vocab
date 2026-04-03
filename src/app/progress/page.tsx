@@ -1,8 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { getRecentSessions, getWeakWords } from '@/lib/progress';
+import { getRecentSessions, getWeakWords, getDifficultyCounts, getWordsByDifficulty, Difficulty } from '@/lib/progress';
 import { vocab } from '@/data/vocab';
+import Link from 'next/link';
 
 interface Session {
   id: string;
@@ -22,19 +23,37 @@ interface WordProg {
   last_seen_at: string;
 }
 
+const DIFF_COLORS: Record<Difficulty, string> = {
+  new: 'border-blue-400 bg-blue-50 text-blue-700',
+  hard: 'border-incorrect bg-incorrect/10 text-incorrect',
+  medium: 'border-amber-400 bg-amber-50 text-amber-700',
+  easy: 'border-correct bg-correct/10 text-correct',
+};
+
 export default function ProgressPage() {
   const [sessions, setSessions] = useState<Session[]>([]);
   const [weakWords, setWeakWords] = useState<WordProg[]>([]);
+  const [diffCounts, setDiffCounts] = useState<Record<Difficulty, number>>({ new: 0, hard: 0, medium: 0, easy: 0 });
+  const [expandedDiff, setExpandedDiff] = useState<Difficulty | null>(null);
+  const [diffWords, setDiffWords] = useState<{ latin: string; updated_at: string }[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    Promise.all([getRecentSessions(), getWeakWords()])
-      .then(([s, w]) => {
+    Promise.all([getRecentSessions(), getWeakWords(), getDifficultyCounts()])
+      .then(([s, w, dc]) => {
         setSessions(s as Session[]);
         setWeakWords(w as WordProg[]);
+        setDiffCounts(dc);
       })
       .finally(() => setLoading(false));
   }, []);
+
+  const toggleDiffExpand = async (d: Difficulty) => {
+    if (expandedDiff === d) { setExpandedDiff(null); return; }
+    const words = await getWordsByDifficulty(d);
+    setDiffWords(words as { latin: string; updated_at: string }[]);
+    setExpandedDiff(d);
+  };
 
   if (loading) {
     return (
@@ -70,6 +89,49 @@ export default function ProgressPage() {
           <p className="text-xs text-foreground/50">Words Tested</p>
         </div>
       </div>
+
+      {/* Difficulty sections */}
+      <section className="mb-8">
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="text-lg font-semibold">Words by Difficulty</h2>
+          <Link href="/flashcards" className="text-sm text-accent hover:underline">
+            Revisit in Flashcards &rarr;
+          </Link>
+        </div>
+        <div className="grid grid-cols-4 gap-3 mb-3">
+          {(['new', 'hard', 'medium', 'easy'] as Difficulty[]).map((d) => (
+            <button
+              key={d}
+              onClick={() => toggleDiffExpand(d)}
+              className={`p-3 rounded-xl border-2 text-center transition-all cursor-pointer ${
+                expandedDiff === d ? DIFF_COLORS[d] : 'border-card-border bg-card-bg hover:border-accent-light'
+              }`}
+            >
+              <p className="text-2xl font-bold">{diffCounts[d]}</p>
+              <p className="text-xs capitalize">{d}</p>
+            </button>
+          ))}
+        </div>
+        {expandedDiff && diffWords.length > 0 && (
+          <div className="rounded-xl border border-card-border bg-card-bg p-4">
+            <h3 className="font-medium capitalize mb-2">{expandedDiff} words ({diffWords.length})</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 text-sm">
+              {diffWords.map((w) => {
+                const entry = vocab.find(v => v.latin === w.latin);
+                return (
+                  <div key={w.latin} className="px-2 py-1 rounded bg-accent/[0.03]">
+                    <span className="font-medium">{w.latin}</span>
+                    {entry && <span className="text-foreground/40 ml-1">— {entry.meanings.split(',')[0]}</span>}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+        {expandedDiff && diffWords.length === 0 && (
+          <p className="text-sm text-foreground/40 text-center py-2">No words in this category yet.</p>
+        )}
+      </section>
 
       {/* Weak words */}
       {weakWords.length > 0 && (

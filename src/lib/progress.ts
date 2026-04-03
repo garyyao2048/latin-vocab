@@ -62,3 +62,41 @@ export async function getRecentSessions(limit = 20) {
     .limit(limit);
   return data ?? [];
 }
+
+export type Difficulty = 'new' | 'hard' | 'medium' | 'easy';
+
+export async function setWordDifficulty(latin: string, difficulty: Difficulty) {
+  const { data } = await supabase
+    .from('word_difficulty')
+    .select('id')
+    .eq('latin', latin)
+    .single();
+
+  if (data) {
+    await supabase
+      .from('word_difficulty')
+      .update({ difficulty, updated_at: new Date().toISOString() })
+      .eq('latin', latin);
+  } else {
+    await supabase.from('word_difficulty').insert({
+      latin,
+      difficulty,
+    });
+  }
+}
+
+export async function getWordsByDifficulty(difficulty?: Difficulty) {
+  let query = supabase.from('word_difficulty').select('*').order('updated_at', { ascending: false });
+  if (difficulty) query = query.eq('difficulty', difficulty);
+  const { data } = await query;
+  return data ?? [];
+}
+
+export async function getDifficultyCounts() {
+  const { data } = await supabase.from('word_difficulty').select('difficulty');
+  const counts = { new: 0, hard: 0, medium: 0, easy: 0 };
+  (data ?? []).forEach((d: { difficulty: string }) => {
+    if (d.difficulty in counts) counts[d.difficulty as Difficulty]++;
+  });
+  return counts;
+}
