@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { VocabEntry, vocab } from '@/data/vocab';
-import { vocabLists } from '@/data/lists';
+import { vocabLists, restrictedLists } from '@/data/lists';
 import { setWordDifficulty, getWordsByDifficulty, getDifficultyCounts, Difficulty } from '@/lib/progress';
 
 function shuffle<T>(arr: T[]): T[] {
@@ -23,8 +23,11 @@ const DIFF_COLORS: Record<Difficulty, string> = {
 
 type Mode = 'pick-list' | 'study' | 'pick-revisit' | 'revisit';
 
+type WordSet = 'normal' | 'restricted';
+
 export default function FlashcardsPage() {
   const [mode, setMode] = useState<Mode>('pick-list');
+  const [wordSet, setWordSet] = useState<WordSet>('normal');
   const [selectedList, setSelectedList] = useState<number | null>(null);
   const [direction, setDirection] = useState<'lat-eng' | 'eng-lat'>('lat-eng');
   const [flipped, setFlipped] = useState(false);
@@ -45,9 +48,10 @@ export default function FlashcardsPage() {
   const filtered = useMemo(() => {
     if (mode === 'revisit') return revisitWords;
     if (selectedList === null) return [];
-    const list = vocabLists.find((l) => l.id === selectedList)!.words;
+    const allLists = wordSet === 'restricted' ? restrictedLists : vocabLists;
+    const list = allLists.find((l) => l.id === selectedList)!.words;
     return shuffled ? shuffle(list) : list;
-  }, [selectedList, shuffled, mode, revisitWords]);
+  }, [selectedList, shuffled, mode, revisitWords, wordSet]);
 
   const card: VocabEntry | undefined = filtered[index];
 
@@ -110,9 +114,28 @@ export default function FlashcardsPage() {
 
         {mode === 'pick-list' && (
           <>
-            <p className="text-sm text-foreground/60 mb-4">Choose a list to study:</p>
+            {/* Word set toggle */}
+            <div className="flex gap-2 mb-4">
+              <button
+                onClick={() => setWordSet('normal')}
+                className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all ${wordSet === 'normal' ? 'bg-foreground text-background border-foreground' : 'border-card-border bg-card-bg hover:border-accent-light'}`}
+              >
+                All Words (10 lists)
+              </button>
+              <button
+                onClick={() => setWordSet('restricted')}
+                className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all ${wordSet === 'restricted' ? 'bg-foreground text-background border-foreground' : 'border-card-border bg-card-bg hover:border-accent-light'}`}
+              >
+                Restricted List (6 lists)
+              </button>
+            </div>
+            <p className="text-sm text-foreground/60 mb-4">
+              {wordSet === 'restricted'
+                ? 'Restricted list — words you need for English → Latin translation:'
+                : 'Choose a list to study:'}
+            </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {vocabLists.map((list) => (
+              {(wordSet === 'restricted' ? restrictedLists : vocabLists).map((list) => (
                 <button
                   key={list.id}
                   onClick={() => { setSelectedList(list.id); setMode('study'); }}
