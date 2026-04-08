@@ -260,14 +260,24 @@ export default function FlashcardsPage() {
                 )}
                 <span className="text-xs text-foreground/30 mt-4">tap to flip</span>
               </div>
-              <div className="flip-card-back absolute inset-0 flex flex-col items-center justify-center rounded-xl border border-accent-light bg-accent/5 shadow-sm p-6">
-                <span className="text-2xl font-bold mb-2">
+              <div className="flip-card-back absolute inset-0 flex flex-col items-center justify-center rounded-xl border border-accent-light bg-accent/5 shadow-sm p-4 overflow-y-auto">
+                <span className="text-2xl font-bold mb-1 text-center">
                   {direction === 'lat-eng' ? card.meanings : card.latin}
                 </span>
                 <span className="text-sm text-foreground/60 mb-1">{card.forms}</span>
                 <span className="text-xs text-foreground/40">
                   {card.partOfSpeech}{card.details ? ` ${card.details}` : ''}
                 </span>
+                {hint?.mnemonic && (
+                  <span className="text-xs text-amber-700 mt-2 text-center italic px-2">
+                    💡 {hint.mnemonic}
+                  </span>
+                )}
+                {hint?.derivatives && (
+                  <span className="text-xs text-foreground/50 mt-1 text-center px-2">
+                    ENG: {hint.derivatives}
+                  </span>
+                )}
               </div>
             </div>
           </div>
