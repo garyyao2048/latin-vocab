@@ -4,6 +4,7 @@ import { useState, useMemo, useCallback, useEffect } from 'react';
 import { VocabEntry, vocab } from '@/data/vocab';
 import { vocabLists, restrictedLists } from '@/data/lists';
 import { setWordDifficulty, getWordsByDifficulty, getDifficultyCounts, Difficulty } from '@/lib/progress';
+import { hints } from '@/data/hints';
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -34,6 +35,7 @@ export default function FlashcardsPage() {
   const [index, setIndex] = useState(0);
   const [shuffled, setShuffled] = useState(false);
   const [rated, setRated] = useState(false);
+  const [showHint, setShowHint] = useState(false);
 
   // Revisit state
   const [counts, setCounts] = useState<Record<Difficulty, number>>({ new: 0, hard: 0, medium: 0, easy: 0 });
@@ -59,6 +61,7 @@ export default function FlashcardsPage() {
     (delta: number) => {
       setFlipped(false);
       setRated(false);
+      setShowHint(false);
       setIndex((i) => {
         const next = i + delta;
         if (next < 0) return filtered.length - 1;
@@ -73,9 +76,11 @@ export default function FlashcardsPage() {
     if (!card || rated) return;
     setRated(true);
     await setWordDifficulty(card.latin, difficulty);
+    // Auto-advance after a short delay
+    setTimeout(() => go(1), 500);
   };
 
-  const resetIndex = () => { setIndex(0); setFlipped(false); setRated(false); };
+  const resetIndex = () => { setIndex(0); setFlipped(false); setRated(false); setShowHint(false); };
 
   const goBack = () => { setMode('pick-list'); setSelectedList(null); resetIndex(); };
 
@@ -232,7 +237,9 @@ export default function FlashcardsPage() {
       </div>
 
       {/* Card */}
-      {card ? (
+      {card ? (() => {
+        const hint = hints[card.latin];
+        return (
         <>
           <div className="text-sm text-foreground/50 mb-2 text-center">
             {index + 1} / {filtered.length}
@@ -288,6 +295,34 @@ export default function FlashcardsPage() {
             </div>
           )}
 
+          {/* Hint button (only when not flipped) */}
+          {!flipped && hint && (
+            <div className="mt-4 text-center">
+              {!showHint ? (
+                <button
+                  onClick={() => setShowHint(true)}
+                  className="px-4 py-1.5 rounded-lg border border-amber-300 bg-amber-50 text-amber-700 text-sm font-medium hover:bg-amber-100"
+                >
+                  💡 Show Hint
+                </button>
+              ) : (
+                <div className="px-4 py-3 rounded-lg border border-amber-300 bg-amber-50 text-sm text-left max-w-md mx-auto">
+                  {hint.derivatives ? (
+                    <>
+                      <p className="font-medium text-amber-700 mb-1">English derivatives:</p>
+                      <p className="text-foreground/70">{hint.derivatives}</p>
+                    </>
+                  ) : hint.mnemonic ? (
+                    <>
+                      <p className="font-medium text-amber-700 mb-1">Memory aid:</p>
+                      <p className="text-foreground/70">{hint.mnemonic}</p>
+                    </>
+                  ) : null}
+                </div>
+              )}
+            </div>
+          )}
+
           <div className="flex justify-center gap-4 mt-4">
             <button
               onClick={() => go(-1)}
@@ -303,7 +338,8 @@ export default function FlashcardsPage() {
             </button>
           </div>
         </>
-      ) : (
+        );
+      })() : (
         <p className="text-center text-foreground/50 mt-10">
           {mode === 'revisit' ? 'No words in this difficulty category yet.' : 'No words match your filters.'}
         </p>
