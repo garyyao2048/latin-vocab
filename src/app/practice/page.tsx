@@ -2,8 +2,8 @@
 
 import { useState, useMemo, useRef, useEffect } from 'react';
 import { vocabLists, getWordsForLists } from '@/data/lists';
-import { VocabEntry } from '@/data/vocab';
-import { saveQuizSession, updateWordProgress } from '@/lib/progress';
+import { VocabEntry, vocab } from '@/data/vocab';
+import { saveQuizSession, updateWordProgress, getWordsByDifficulty, getDifficultyCounts, Difficulty } from '@/lib/progress';
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -17,23 +17,43 @@ function shuffle<T>(arr: T[]): T[] {
 interface Answer {
   word: VocabEntry;
   typed: string;
-  correct: boolean | null; // null = not yet reviewed
+  correct: boolean | null;
 }
 
+const DIFF_COLORS: Record<Difficulty, string> = {
+  new: 'border-blue-400 bg-blue-50 text-blue-700',
+  hard: 'border-incorrect bg-incorrect/10 text-incorrect',
+  medium: 'border-amber-400 bg-amber-50 text-amber-700',
+  easy: 'border-correct bg-correct/10 text-correct',
+};
+
+type Source = 'lists' | 'difficulty';
+
 export default function PracticePage() {
+  const [source, setSource] = useState<Source>('lists');
   const [selectedLists, setSelectedLists] = useState<number[]>([]);
+  const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty>('hard');
+  const [diffLimit, setDiffLimit] = useState(20);
+  const [counts, setCounts] = useState<Record<Difficulty, number>>({ new: 0, hard: 0, medium: 0, easy: 0 });
+
   const [direction, setDirection] = useState<'lat-eng' | 'eng-lat'>('lat-eng');
   const [phase, setPhase] = useState<'pick' | 'type' | 'review'>('pick');
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [input, setInput] = useState('');
   const [reviewIndex, setReviewIndex] = useState(0);
+  const [customWords, setCustomWords] = useState<VocabEntry[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+    getDifficultyCounts().then(setCounts);
+  }, [phase]);
+
   const words = useMemo(() => {
+    if (customWords.length > 0) return customWords;
     return shuffle(getWordsForLists(selectedLists));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [phase === 'type']);
+  }, [phase === 'type', customWords]);
 
   useEffect(() => {
     if (phase === 'type') inputRef.current?.focus();
@@ -45,7 +65,19 @@ export default function PracticePage() {
     );
   };
 
-  const startPractice = () => {
+  const startFromLists = () => {
+    setCustomWords([]);
+    setAnswers([]);
+    setCurrentIndex(0);
+    setInput('');
+    setPhase('type');
+  };
+
+  const startFromDifficulty = async () => {
+    const diffWords = await getWordsByDifficulty(selectedDifficulty);
+    const latinSet = new Set(diffWords.slice(0, diffLimit).map((w: { latin: string }) => w.latin));
+    const matched = shuffle(vocab.filter(v => latinSet.has(v.latin)));
+    setCustomWords(matched);
     setAnswers([]);
     setCurrentIndex(0);
     setInput('');
@@ -102,38 +134,96 @@ export default function PracticePage() {
     }
   }, [allReviewed, direction, selectedLists, answers, correctCount]);
 
-  // Phase: pick lists
+  // Phase: pick
   if (phase === 'pick') {
     return (
       <div className="max-w-2xl mx-auto px-4 py-10">
         <h1 className="text-2xl font-bold text-accent mb-6">Typed Practice</h1>
-        <p className="text-sm text-foreground/60 mb-4">
-          Type the translation for each word, then review your answers. Select lists (leave all unchecked for all words):
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-          {vocabLists.map((list) => (
-            <label
-              key={list.id}
-              className={`flex items-start gap-3 p-4 rounded-xl border cursor-pointer transition-all ${
-                selectedLists.includes(list.id)
-                  ? 'border-accent bg-accent/5 shadow-sm'
-                  : 'border-card-border bg-card-bg hover:border-accent-light'
-              }`}
-            >
-              <input
-                type="checkbox"
-                checked={selectedLists.includes(list.id)}
-                onChange={() => toggleList(list.id)}
-                className="accent-accent mt-0.5"
-              />
-              <div>
-                <span className="font-semibold">{list.label}</span>
-                <span className="block text-sm text-foreground/50">{list.range}</span>
-                <span className="block text-xs text-foreground/40">{list.words.length} words</span>
-              </div>
-            </label>
-          ))}
+
+        {/* Source toggle */}
+        <div className="flex gap-2 mb-6">
+          <button
+            onClick={() => setSource('lists')}
+            className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all ${source === 'lists' ? 'bg-accent text-white border-accent' : 'border-card-border bg-card-bg'}`}
+          >
+            By List
+          </button>
+          <button
+            onClick={() => setSource('difficulty')}
+            className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all ${source === 'difficulty' ? 'bg-accent text-white border-accent' : 'border-card-border bg-card-bg'}`}
+          >
+            By Difficulty
+          </button>
         </div>
+
+        {source === 'lists' && (
+          <>
+            <p className="text-sm text-foreground/60 mb-4">
+              Select lists (leave all unchecked for all words):
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+              {vocabLists.map((list) => (
+                <label
+                  key={list.id}
+                  className={`flex items-start gap-3 p-4 rounded-xl border cursor-pointer transition-all ${
+                    selectedLists.includes(list.id)
+                      ? 'border-accent bg-accent/5 shadow-sm'
+                      : 'border-card-border bg-card-bg hover:border-accent-light'
+                  }`}
+                >
+                  <input
+                    type="checkbox"
+                    checked={selectedLists.includes(list.id)}
+                    onChange={() => toggleList(list.id)}
+                    className="accent-accent mt-0.5"
+                  />
+                  <div>
+                    <span className="font-semibold">{list.label}</span>
+                    <span className="block text-sm text-foreground/50">{list.range}</span>
+                    <span className="block text-xs text-foreground/40">{list.words.length} words</span>
+                  </div>
+                </label>
+              ))}
+            </div>
+          </>
+        )}
+
+        {source === 'difficulty' && (
+          <>
+            <p className="text-sm text-foreground/60 mb-4">Choose a difficulty to practice:</p>
+            <div className="grid grid-cols-2 gap-3 mb-6">
+              {(['new', 'hard', 'medium', 'easy'] as Difficulty[]).map((d) => (
+                <button
+                  key={d}
+                  onClick={() => setSelectedDifficulty(d)}
+                  className={`p-4 rounded-xl border-2 text-left transition-all ${
+                    selectedDifficulty === d ? DIFF_COLORS[d] : 'border-card-border bg-card-bg hover:border-accent-light'
+                  }`}
+                >
+                  <span className="font-semibold capitalize">{d}</span>
+                  <span className="block text-sm text-foreground/50 mt-0.5">{counts[d]} words</span>
+                </button>
+              ))}
+            </div>
+            <div className="mb-6">
+              <label className="text-sm text-foreground/60 block mb-2">
+                How many words? <span className="font-semibold">{diffLimit}</span>
+              </label>
+              <input
+                type="range"
+                min={5}
+                max={Math.max(counts[selectedDifficulty], 5)}
+                value={Math.min(diffLimit, Math.max(counts[selectedDifficulty], 5))}
+                onChange={(e) => setDiffLimit(Number(e.target.value))}
+                className="w-full accent-accent"
+              />
+              <div className="flex justify-between text-xs text-foreground/40">
+                <span>5</span>
+                <span>{Math.max(counts[selectedDifficulty], 5)}</span>
+              </div>
+            </div>
+          </>
+        )}
 
         <div className="flex flex-wrap gap-3 mb-4 text-sm">
           <button
@@ -144,12 +234,22 @@ export default function PracticePage() {
           </button>
         </div>
 
-        <button
-          onClick={startPractice}
-          className="px-6 py-2.5 rounded-lg bg-accent text-white font-medium hover:bg-accent/90"
-        >
-          Start Practice ({selectedLists.length === 0 ? 'all 450' : getWordsForLists(selectedLists).length} words)
-        </button>
+        {source === 'lists' ? (
+          <button
+            onClick={startFromLists}
+            className="px-6 py-2.5 rounded-lg bg-accent text-white font-medium hover:bg-accent/90"
+          >
+            Start Practice ({selectedLists.length === 0 ? 'all 450' : getWordsForLists(selectedLists).length} words)
+          </button>
+        ) : (
+          <button
+            onClick={startFromDifficulty}
+            disabled={counts[selectedDifficulty] === 0}
+            className="px-6 py-2.5 rounded-lg bg-accent text-white font-medium hover:bg-accent/90 disabled:opacity-40"
+          >
+            Start Practice ({Math.min(diffLimit, counts[selectedDifficulty])} words)
+          </button>
+        )}
       </div>
     );
   }
@@ -160,7 +260,7 @@ export default function PracticePage() {
     return (
       <div className="max-w-2xl mx-auto px-4 py-10">
         <div className="flex items-center gap-3 mb-6">
-          <button onClick={() => setPhase('pick')} className="text-sm text-accent hover:underline">
+          <button onClick={() => { setPhase('pick'); setCustomWords([]); savedRef.current = false; }} className="text-sm text-accent hover:underline">
             &larr; Back
           </button>
           <h1 className="text-2xl font-bold text-accent">Typed Practice</h1>
@@ -221,7 +321,6 @@ export default function PracticePage() {
             </p>
           </div>
 
-          {/* Wrong answers summary */}
           {answers.filter((a) => !a.correct).length > 0 && (
             <div className="text-left mb-6">
               <h2 className="font-semibold mb-3">Words to revise:</h2>
@@ -240,7 +339,7 @@ export default function PracticePage() {
           )}
 
           <button
-            onClick={() => setPhase('pick')}
+            onClick={() => { setPhase('pick'); setCustomWords([]); savedRef.current = false; }}
             className="px-6 py-2.5 rounded-lg bg-accent text-white font-medium hover:bg-accent/90"
           >
             Practice Again
