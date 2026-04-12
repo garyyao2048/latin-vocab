@@ -270,38 +270,31 @@ export default function FlashcardsPage() {
             <div className="space-y-1.5 max-h-[60vh] overflow-y-auto">
               {listViewWords.map((v, i) => {
                 const diff = wordDiffs[v.latin];
-                const cycleDiff = async () => {
-                  const order: (Difficulty | undefined)[] = [undefined, 'hard', 'medium', 'easy', 'new'];
-                  const currentIdx = order.indexOf(diff);
-                  const nextIdx = (currentIdx + 1) % order.length;
-                  const next = order[nextIdx];
-                  if (next) {
-                    await setWordDifficulty(v.latin, next);
-                    setWordDiffs((prev) => ({ ...prev, [v.latin]: next }));
-                  } else {
-                    // Remove by setting back to unrated — just cycle to hard
-                    await setWordDifficulty(v.latin, 'hard');
-                    setWordDiffs((prev) => {
-                      const copy = { ...prev };
-                      delete copy[v.latin];
-                      return copy;
-                    });
-                  }
+                const pickDiff = async (d: Difficulty) => {
+                  await setWordDifficulty(v.latin, d);
+                  setWordDiffs((prev) => ({ ...prev, [v.latin]: d }));
                 };
                 return (
-                  <div key={v.latin + '|' + v.meanings} className="flex items-center justify-between px-3 py-2 rounded-lg border border-card-border bg-card-bg text-sm">
+                  <div key={v.latin + '|' + v.meanings} className="flex items-center justify-between px-3 py-2 rounded-lg border border-card-border bg-card-bg text-sm gap-2">
                     <div className="flex-1 min-w-0">
                       <span className="font-medium">{v.latin}</span>
-                      <span className="text-foreground/40 ml-2">— {v.meanings}</span>
+                      <span className="text-foreground/40 ml-2 hidden sm:inline">— {v.meanings}</span>
                     </div>
-                    <button
-                      onClick={cycleDiff}
-                      className={`ml-2 px-2 py-0.5 rounded border text-xs font-medium capitalize whitespace-nowrap cursor-pointer transition-all hover:opacity-80 ${
-                        diff ? DIFF_BADGE[diff] : 'border-card-border text-foreground/30'
-                      }`}
-                    >
-                      {diff ?? 'unrated'}
-                    </button>
+                    <div className="flex gap-1 shrink-0">
+                      {(['hard', 'medium', 'easy', 'new'] as Difficulty[]).map((d) => (
+                        <button
+                          key={d}
+                          onClick={() => pickDiff(d)}
+                          className={`px-1.5 py-0.5 rounded border text-[10px] font-medium capitalize transition-all ${
+                            diff === d
+                              ? DIFF_BADGE[d]
+                              : 'border-transparent text-foreground/20 hover:text-foreground/50'
+                          }`}
+                        >
+                          {d.charAt(0).toUpperCase()}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 );
               })}
