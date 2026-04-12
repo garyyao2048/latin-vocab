@@ -252,19 +252,24 @@ export default function FlashcardsPage() {
               </select>
             </div>
             <div className="flex flex-wrap gap-2 mb-4">
-              {(['all', 'hard', 'medium', 'easy', 'new', 'unrated'] as const).map((f) => (
-                <button
-                  key={f}
-                  onClick={() => setListViewFilter(f)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all capitalize ${
-                    listViewFilter === f ? 'bg-accent text-white border-accent' : 'border-card-border bg-card-bg'
-                  }`}
-                >
-                  {f} {f === 'all' ? `(${vocab.length})` : f === 'unrated'
-                    ? `(${vocab.filter(v => !wordDiffs[v.latin]).length})`
-                    : `(${Object.values(wordDiffs).filter(d => d === f).length})`}
-                </button>
-              ))}
+              {(['all', 'hard', 'medium', 'easy', 'new', 'unrated'] as const).map((f) => {
+                const count = f === 'all'
+                  ? listPool.length
+                  : f === 'unrated'
+                  ? listPool.filter(v => !wordDiffs[v.latin]).length
+                  : listPool.filter(v => wordDiffs[v.latin] === f).length;
+                return (
+                  <button
+                    key={f}
+                    onClick={() => setListViewFilter(f)}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all capitalize ${
+                      listViewFilter === f ? 'bg-accent text-white border-accent' : 'border-card-border bg-card-bg'
+                    }`}
+                  >
+                    {f} ({count})
+                  </button>
+                );
+              })}
             </div>
 
             <div className="space-y-1.5 max-h-[60vh] overflow-y-auto">
