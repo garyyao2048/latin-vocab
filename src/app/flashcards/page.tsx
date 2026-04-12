@@ -111,10 +111,18 @@ export default function FlashcardsPage() {
       new: 'bg-blue-50 text-blue-700 border-blue-400',
     };
 
-    const listViewWords = vocab.filter((v) => {
+    const listViewWordsRaw = vocab.filter((v) => {
       if (listViewFilter === 'all') return true;
       if (listViewFilter === 'unrated') return !wordDiffs[v.latin];
       return wordDiffs[v.latin] === listViewFilter;
+    });
+    // Deduplicate by latin+meanings to avoid duplicate entries (e.g. "cum" appears twice)
+    const seen = new Set<string>();
+    const listViewWords = listViewWordsRaw.filter((v) => {
+      const key = v.latin + '|' + v.meanings;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
     });
 
     return (
@@ -246,10 +254,10 @@ export default function FlashcardsPage() {
             </div>
 
             <div className="space-y-1.5 max-h-[60vh] overflow-y-auto">
-              {listViewWords.map((v) => {
+              {listViewWords.map((v, i) => {
                 const diff = wordDiffs[v.latin];
                 return (
-                  <div key={v.latin} className="flex items-center justify-between px-3 py-2 rounded-lg border border-card-border bg-card-bg text-sm">
+                  <div key={v.latin + '|' + v.meanings} className="flex items-center justify-between px-3 py-2 rounded-lg border border-card-border bg-card-bg text-sm">
                     <div className="flex-1 min-w-0">
                       <span className="font-medium">{v.latin}</span>
                       <span className="text-foreground/40 ml-2">— {v.meanings}</span>
