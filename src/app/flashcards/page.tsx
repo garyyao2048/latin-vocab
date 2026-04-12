@@ -46,6 +46,7 @@ export default function FlashcardsPage() {
   // List view state
   const [wordDiffs, setWordDiffs] = useState<Record<string, Difficulty>>({});
   const [listViewFilter, setListViewFilter] = useState<Difficulty | 'all' | 'unrated'>('all');
+  const [listViewList, setListViewList] = useState<number | 'all'>('all');
 
   useEffect(() => {
     getDifficultyCounts().then(setCounts);
@@ -111,7 +112,8 @@ export default function FlashcardsPage() {
       new: 'bg-blue-50 text-blue-700 border-blue-400',
     };
 
-    const listViewWordsRaw = vocab.filter((v) => {
+    const listPool = listViewList === 'all' ? vocab : vocabLists.find(l => l.id === listViewList)?.words ?? vocab;
+    const listViewWordsRaw = listPool.filter((v) => {
       if (listViewFilter === 'all') return true;
       if (listViewFilter === 'unrated') return !wordDiffs[v.latin];
       return wordDiffs[v.latin] === listViewFilter;
@@ -237,6 +239,18 @@ export default function FlashcardsPage() {
 
         {mode === 'list-view' && (
           <>
+            <div className="flex flex-wrap gap-2 mb-3">
+              <select
+                value={listViewList}
+                onChange={(e) => setListViewList(e.target.value === 'all' ? 'all' : Number(e.target.value))}
+                className="px-3 py-1.5 rounded-lg border border-card-border bg-card-bg text-sm"
+              >
+                <option value="all">All Lists</option>
+                {vocabLists.map((l) => (
+                  <option key={l.id} value={l.id}>{l.label} ({l.range})</option>
+                ))}
+              </select>
+            </div>
             <div className="flex flex-wrap gap-2 mb-4">
               {(['all', 'hard', 'medium', 'easy', 'new', 'unrated'] as const).map((f) => (
                 <button
