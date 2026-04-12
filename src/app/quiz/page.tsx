@@ -3,7 +3,7 @@
 import { useState, useMemo, useCallback, useRef } from 'react';
 import { vocab } from '@/data/vocab';
 import { vocabLists, getWordsForLists } from '@/data/lists';
-import { saveQuizSession, updateWordProgress } from '@/lib/progress';
+import { saveQuizSession, updateWordProgress, adjustDifficultyOnQuiz } from '@/lib/progress';
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -69,6 +69,7 @@ export default function QuizPage() {
         setScore((s) => s + 1);
       }
       wordResults.current.push({ latin: current.latin, correct: isCorrect });
+      adjustDifficultyOnQuiz(current.latin, isCorrect);
     },
     [selected, correctAnswer, current]
   );

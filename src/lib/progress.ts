@@ -100,3 +100,69 @@ export async function getDifficultyCounts() {
   });
   return counts;
 }
+
+export async function getAllWordDifficulties(): Promise<Record<string, Difficulty>> {
+  const { data } = await supabase.from('word_difficulty').select('latin, difficulty');
+  const map: Record<string, Difficulty> = {};
+  (data ?? []).forEach((d: { latin: string; difficulty: string }) => {
+    map[d.latin] = d.difficulty as Difficulty;
+  });
+  return map;
+}
+
+const DIFF_ORDER: Difficulty[] = ['hard', 'medium', 'easy'];
+
+function getStreaks(): Record<string, number> {
+  if (typeof window === 'undefined') return {};
+  try { return JSON.parse(localStorage.getItem('latin_streaks') || '{}'); } catch { return {}; }
+}
+
+function saveStreaks(streaks: Record<string, number>) {
+  if (typeof window === 'undefined') return;
+  localStorage.setItem('latin_streaks', JSON.stringify(streaks));
+}
+
+export async function adjustDifficultyOnQuiz(latin: string, correct: boolean) {
+  const { data } = await supabase
+    .from('word_difficulty')
+    .select('difficulty')
+    .eq('latin', latin)
+    .single();
+
+  const streaks = getStreaks();
+
+  if (!data) {
+    // First time — set to hard if wrong, medium if right
+    await supabase.from('word_difficulty').insert({
+      latin,
+      difficulty: correct ? 'medium' : 'hard',
+    });
+    streaks[latin] = correct ? 1 : 0;
+    saveStreaks(streaks);
+    return;
+  }
+
+  const currentDiff = data.difficulty as Difficulty;
+  const streak = streaks[latin] ?? 0;
+
+  if (!correct) {
+    // Wrong: move down, reset streak
+    const currentIdx = DIFF_ORDER.indexOf(currentDiff);
+    const newDiff = currentIdx <= 0 ? 'hard' : DIFF_ORDER[currentIdx - 1];
+    await setWordDifficulty(latin, newDiff);
+    streaks[latin] = 0;
+    saveStreaks(streaks);
+  } else {
+    // Correct: increment streak, move up after 3
+    const newStreak = streak + 1;
+    if (newStreak >= 3) {
+      const currentIdx = DIFF_ORDER.indexOf(currentDiff);
+      const newDiff = currentIdx >= DIFF_ORDER.length - 1 ? 'easy' : DIFF_ORDER[currentIdx + 1];
+      await setWordDifficulty(latin, newDiff);
+      streaks[latin] = 0;
+    } else {
+      streaks[latin] = newStreak;
+    }
+    saveStreaks(streaks);
+  }
+}

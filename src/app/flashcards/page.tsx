@@ -3,7 +3,7 @@
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { VocabEntry, vocab } from '@/data/vocab';
 import { vocabLists, restrictedLists } from '@/data/lists';
-import { setWordDifficulty, getWordsByDifficulty, getDifficultyCounts, Difficulty } from '@/lib/progress';
+import { setWordDifficulty, getWordsByDifficulty, getDifficultyCounts, getAllWordDifficulties, Difficulty } from '@/lib/progress';
 import { hints } from '@/data/hints';
 
 function shuffle<T>(arr: T[]): T[] {
@@ -22,7 +22,7 @@ const DIFF_COLORS: Record<Difficulty, string> = {
   easy: 'border-correct bg-correct/10 text-correct hover:bg-correct/20',
 };
 
-type Mode = 'pick-list' | 'study' | 'pick-revisit' | 'revisit';
+type Mode = 'pick-list' | 'study' | 'pick-revisit' | 'revisit' | 'list-view';
 
 type WordSet = 'normal' | 'restricted';
 
@@ -43,8 +43,15 @@ export default function FlashcardsPage() {
   const [revisitLimit, setRevisitLimit] = useState(10);
   const [revisitWords, setRevisitWords] = useState<VocabEntry[]>([]);
 
+  // List view state
+  const [wordDiffs, setWordDiffs] = useState<Record<string, Difficulty>>({});
+  const [listViewFilter, setListViewFilter] = useState<Difficulty | 'all' | 'unrated'>('all');
+
   useEffect(() => {
     getDifficultyCounts().then(setCounts);
+    if (mode === 'list-view' || mode === 'pick-list') {
+      getAllWordDifficulties().then(setWordDiffs);
+    }
   }, [mode]);
 
   const filtered = useMemo(() => {
@@ -95,14 +102,27 @@ export default function FlashcardsPage() {
     setMode('revisit');
   };
 
-  // List picker + revisit picker
-  if (mode === 'pick-list' || mode === 'pick-revisit') {
+  // List picker + revisit picker + list view
+  if (mode === 'pick-list' || mode === 'pick-revisit' || mode === 'list-view') {
+    const DIFF_BADGE: Record<string, string> = {
+      easy: 'bg-correct/10 text-correct border-correct',
+      medium: 'bg-amber-50 text-amber-700 border-amber-400',
+      hard: 'bg-incorrect/10 text-incorrect border-incorrect',
+      new: 'bg-blue-50 text-blue-700 border-blue-400',
+    };
+
+    const listViewWords = vocab.filter((v) => {
+      if (listViewFilter === 'all') return true;
+      if (listViewFilter === 'unrated') return !wordDiffs[v.latin];
+      return wordDiffs[v.latin] === listViewFilter;
+    });
+
     return (
       <div className="max-w-2xl mx-auto px-4 py-10">
         <h1 className="text-2xl font-bold text-accent mb-6">Flashcards</h1>
 
         {/* Tab toggle */}
-        <div className="flex gap-2 mb-6">
+        <div className="flex flex-wrap gap-2 mb-6">
           <button
             onClick={() => setMode('pick-list')}
             className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all ${mode === 'pick-list' ? 'bg-accent text-white border-accent' : 'border-card-border bg-card-bg'}`}
@@ -114,6 +134,12 @@ export default function FlashcardsPage() {
             className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all ${mode === 'pick-revisit' ? 'bg-accent text-white border-accent' : 'border-card-border bg-card-bg'}`}
           >
             Revisit by Difficulty
+          </button>
+          <button
+            onClick={() => setMode('list-view')}
+            className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all ${mode === 'list-view' ? 'bg-accent text-white border-accent' : 'border-card-border bg-card-bg'}`}
+          >
+            List View
           </button>
         </div>
 
@@ -198,6 +224,50 @@ export default function FlashcardsPage() {
             >
               Start Revisit ({Math.min(revisitLimit, counts[revisitDifficulty])} words)
             </button>
+          </>
+        )}
+
+        {mode === 'list-view' && (
+          <>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {(['all', 'hard', 'medium', 'easy', 'new', 'unrated'] as const).map((f) => (
+                <button
+                  key={f}
+                  onClick={() => setListViewFilter(f)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all capitalize ${
+                    listViewFilter === f ? 'bg-accent text-white border-accent' : 'border-card-border bg-card-bg'
+                  }`}
+                >
+                  {f} {f === 'all' ? `(${vocab.length})` : f === 'unrated'
+                    ? `(${vocab.filter(v => !wordDiffs[v.latin]).length})`
+                    : `(${Object.values(wordDiffs).filter(d => d === f).length})`}
+                </button>
+              ))}
+            </div>
+
+            <div className="space-y-1.5 max-h-[60vh] overflow-y-auto">
+              {listViewWords.map((v) => {
+                const diff = wordDiffs[v.latin];
+                return (
+                  <div key={v.latin} className="flex items-center justify-between px-3 py-2 rounded-lg border border-card-border bg-card-bg text-sm">
+                    <div className="flex-1 min-w-0">
+                      <span className="font-medium">{v.latin}</span>
+                      <span className="text-foreground/40 ml-2">— {v.meanings}</span>
+                    </div>
+                    {diff ? (
+                      <span className={`ml-2 px-2 py-0.5 rounded border text-xs font-medium capitalize whitespace-nowrap ${DIFF_BADGE[diff]}`}>
+                        {diff}
+                      </span>
+                    ) : (
+                      <span className="ml-2 px-2 py-0.5 rounded border border-card-border text-xs text-foreground/30 whitespace-nowrap">
+                        unrated
+                      </span>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+            <p className="text-xs text-foreground/40 mt-3 text-center">{listViewWords.length} words</p>
           </>
         )}
       </div>
