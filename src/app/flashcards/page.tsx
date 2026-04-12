@@ -270,21 +270,38 @@ export default function FlashcardsPage() {
             <div className="space-y-1.5 max-h-[60vh] overflow-y-auto">
               {listViewWords.map((v, i) => {
                 const diff = wordDiffs[v.latin];
+                const cycleDiff = async () => {
+                  const order: (Difficulty | undefined)[] = [undefined, 'hard', 'medium', 'easy', 'new'];
+                  const currentIdx = order.indexOf(diff);
+                  const nextIdx = (currentIdx + 1) % order.length;
+                  const next = order[nextIdx];
+                  if (next) {
+                    await setWordDifficulty(v.latin, next);
+                    setWordDiffs((prev) => ({ ...prev, [v.latin]: next }));
+                  } else {
+                    // Remove by setting back to unrated — just cycle to hard
+                    await setWordDifficulty(v.latin, 'hard');
+                    setWordDiffs((prev) => {
+                      const copy = { ...prev };
+                      delete copy[v.latin];
+                      return copy;
+                    });
+                  }
+                };
                 return (
                   <div key={v.latin + '|' + v.meanings} className="flex items-center justify-between px-3 py-2 rounded-lg border border-card-border bg-card-bg text-sm">
                     <div className="flex-1 min-w-0">
                       <span className="font-medium">{v.latin}</span>
                       <span className="text-foreground/40 ml-2">— {v.meanings}</span>
                     </div>
-                    {diff ? (
-                      <span className={`ml-2 px-2 py-0.5 rounded border text-xs font-medium capitalize whitespace-nowrap ${DIFF_BADGE[diff]}`}>
-                        {diff}
-                      </span>
-                    ) : (
-                      <span className="ml-2 px-2 py-0.5 rounded border border-card-border text-xs text-foreground/30 whitespace-nowrap">
-                        unrated
-                      </span>
-                    )}
+                    <button
+                      onClick={cycleDiff}
+                      className={`ml-2 px-2 py-0.5 rounded border text-xs font-medium capitalize whitespace-nowrap cursor-pointer transition-all hover:opacity-80 ${
+                        diff ? DIFF_BADGE[diff] : 'border-card-border text-foreground/30'
+                      }`}
+                    >
+                      {diff ?? 'unrated'}
+                    </button>
                   </div>
                 );
               })}
