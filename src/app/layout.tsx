@@ -34,30 +34,30 @@ export default function RootLayout({
             <Link href="/" className="text-lg font-bold text-accent tracking-tight">
               Latin GCSE
             </Link>
-            <div className="flex gap-4 text-sm font-medium">
+            <div className="flex flex-wrap gap-4 text-sm font-medium">
               <Link href="/flashcards" className="hover:text-accent transition-colors">
                 Flashcards
               </Link>
               <Link href="/quiz" className="hover:text-accent transition-colors">
                 Quiz
               </Link>
+              <Link href="/practice" className="hover:text-accent transition-colors">
+                Practice
+              </Link>
               <Link href="/declensions" className="hover:text-accent transition-colors">
                 Declensions
               </Link>
-              <Link href="/practice" className="hover:text-accent transition-colors">
-                Practice
+              <Link href="/conjugations" className="hover:text-accent transition-colors">
+                Conjugations
               </Link>
               <Link href="/grammar" className="hover:text-accent transition-colors">
                 Grammar
               </Link>
-              <Link href="/progress" className="hover:text-accent transition-colors">
-                Progress
-              </Link>
               <Link href="/dictionary" className="hover:text-accent transition-colors">
                 Dictionary
               </Link>
-              <Link href="/conjugations" className="hover:text-accent transition-colors">
-                Conjugations
+              <Link href="/progress" className="hover:text-accent transition-colors">
+                Progress
               </Link>
             </div>
           </div>

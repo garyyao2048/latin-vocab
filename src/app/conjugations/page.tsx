@@ -1,239 +1,327 @@
+'use client';
+
+import { useState } from 'react';
+
+interface ConjTable {
+  title: string;
+  subtitle: string;
+  headers: string[];
+  rows: { label: string; answers: string[] }[];
+}
+
+const CONJ_TABLES: ConjTable[] = [
+  {
+    title: 'Present Active Indicative',
+    subtitle: '"I carry / I am carrying"',
+    headers: ['', '1st (porto)', '2nd (moneo)', '3rd (rego)', '4th (audio)'],
+    rows: [
+      { label: '1st sg', answers: ['porto', 'moneo', 'rego', 'audio'] },
+      { label: '2nd sg', answers: ['portas', 'mones', 'regis', 'audis'] },
+      { label: '3rd sg', answers: ['portat', 'monet', 'regit', 'audit'] },
+      { label: '1st pl', answers: ['portamus', 'monemus', 'regimus', 'audimus'] },
+      { label: '2nd pl', answers: ['portatis', 'monetis', 'regitis', 'auditis'] },
+      { label: '3rd pl', answers: ['portant', 'monent', 'regunt', 'audiunt'] },
+    ],
+  },
+  {
+    title: 'Future Active Indicative',
+    subtitle: '"I will carry" — 1st/2nd use -bi-, 3rd/4th use -am/-es',
+    headers: ['', '1st (porto)', '2nd (moneo)', '3rd (rego)', '4th (audio)'],
+    rows: [
+      { label: '1st sg', answers: ['portabo', 'monebo', 'regam', 'audiam'] },
+      { label: '2nd sg', answers: ['portabis', 'monebis', 'reges', 'audies'] },
+      { label: '3rd sg', answers: ['portabit', 'monebit', 'reget', 'audiet'] },
+      { label: '1st pl', answers: ['portabimus', 'monebimus', 'regemus', 'audiemus'] },
+      { label: '2nd pl', answers: ['portabitis', 'monebitis', 'regetis', 'audietis'] },
+      { label: '3rd pl', answers: ['portabunt', 'monebunt', 'regent', 'audient'] },
+    ],
+  },
+  {
+    title: 'Imperfect Active Indicative',
+    subtitle: '"I was carrying / I used to carry"',
+    headers: ['', '1st (porto)', '2nd (moneo)', '3rd (rego)', '4th (audio)'],
+    rows: [
+      { label: '1st sg', answers: ['portabam', 'monebam', 'regebam', 'audiebam'] },
+      { label: '2nd sg', answers: ['portabas', 'monebas', 'regebas', 'audiebas'] },
+      { label: '3rd sg', answers: ['portabat', 'monebat', 'regebat', 'audiebat'] },
+      { label: '1st pl', answers: ['portabamus', 'monebamus', 'regebamus', 'audiebamus'] },
+      { label: '2nd pl', answers: ['portabatis', 'monebatis', 'regebatis', 'audiebatis'] },
+      { label: '3rd pl', answers: ['portabant', 'monebant', 'regebant', 'audiebant'] },
+    ],
+  },
+  {
+    title: 'Perfect Active Indicative',
+    subtitle: '"I carried / I have carried" — same endings for all conjugations',
+    headers: ['', '1st (portav-)', '2nd (monu-)', '3rd (rex-)', '4th (audiv-)'],
+    rows: [
+      { label: '1st sg', answers: ['portavi', 'monui', 'rexi', 'audivi'] },
+      { label: '2nd sg', answers: ['portavisti', 'monuisti', 'rexisti', 'audivisti'] },
+      { label: '3rd sg', answers: ['portavit', 'monuit', 'rexit', 'audivit'] },
+      { label: '1st pl', answers: ['portavimus', 'monuimus', 'reximus', 'audivimus'] },
+      { label: '2nd pl', answers: ['portavistis', 'monuistis', 'rexistis', 'audivistis'] },
+      { label: '3rd pl', answers: ['portaverunt', 'monuerunt', 'rexerunt', 'audiverunt'] },
+    ],
+  },
+  {
+    title: 'Pluperfect Active Indicative',
+    subtitle: '"I had carried" — perfect stem + era-',
+    headers: ['', '1st (portav-)', '2nd (monu-)', '3rd (rex-)', '4th (audiv-)'],
+    rows: [
+      { label: '1st sg', answers: ['portaveram', 'monueram', 'rexeram', 'audiveram'] },
+      { label: '2nd sg', answers: ['portaveras', 'monueras', 'rexeras', 'audiveras'] },
+      { label: '3rd sg', answers: ['portaverat', 'monuerat', 'rexerat', 'audiverat'] },
+      { label: '1st pl', answers: ['portaveramus', 'monueramus', 'rexeramus', 'audiveramus'] },
+      { label: '2nd pl', answers: ['portaveratis', 'monueratis', 'rexeratis', 'audiveratis'] },
+      { label: '3rd pl', answers: ['portaverant', 'monuerant', 'rexerant', 'audiverant'] },
+    ],
+  },
+  {
+    title: 'Irregular: sum, esse (to be)',
+    subtitle: 'All tenses',
+    headers: ['', 'Present', 'Future', 'Imperfect', 'Perfect', 'Pluperfect'],
+    rows: [
+      { label: '1st sg', answers: ['sum', 'ero', 'eram', 'fui', 'fueram'] },
+      { label: '2nd sg', answers: ['es', 'eris', 'eras', 'fuisti', 'fueras'] },
+      { label: '3rd sg', answers: ['est', 'erit', 'erat', 'fuit', 'fuerat'] },
+      { label: '1st pl', answers: ['sumus', 'erimus', 'eramus', 'fuimus', 'fueramus'] },
+      { label: '2nd pl', answers: ['estis', 'eritis', 'eratis', 'fuistis', 'fueratis'] },
+      { label: '3rd pl', answers: ['sunt', 'erunt', 'erant', 'fuerunt', 'fuerant'] },
+    ],
+  },
+  {
+    title: 'Irregular: possum, posse (to be able)',
+    subtitle: 'All tenses',
+    headers: ['', 'Present', 'Future', 'Imperfect', 'Perfect', 'Pluperfect'],
+    rows: [
+      { label: '1st sg', answers: ['possum', 'potero', 'poteram', 'potui', 'potueram'] },
+      { label: '2nd sg', answers: ['potes', 'poteris', 'poteras', 'potuisti', 'potueras'] },
+      { label: '3rd sg', answers: ['potest', 'poterit', 'poterat', 'potuit', 'potuerat'] },
+      { label: '1st pl', answers: ['possumus', 'poterimus', 'poteramus', 'potuimus', 'potueramus'] },
+      { label: '2nd pl', answers: ['potestis', 'poteritis', 'poteratis', 'potuistis', 'potueratis'] },
+      { label: '3rd pl', answers: ['possunt', 'poterunt', 'poterant', 'potuerunt', 'potuerant'] },
+    ],
+  },
+  {
+    title: 'Irregular: eo, ire (to go)',
+    subtitle: 'All tenses',
+    headers: ['', 'Present', 'Future', 'Imperfect', 'Perfect', 'Pluperfect'],
+    rows: [
+      { label: '1st sg', answers: ['eo', 'ibo', 'ibam', 'ii', 'ieram'] },
+      { label: '2nd sg', answers: ['is', 'ibis', 'ibas', 'iisti', 'ieras'] },
+      { label: '3rd sg', answers: ['it', 'ibit', 'ibat', 'iit', 'ierat'] },
+      { label: '1st pl', answers: ['imus', 'ibimus', 'ibamus', 'iimus', 'ieramus'] },
+      { label: '2nd pl', answers: ['itis', 'ibitis', 'ibatis', 'iistis', 'ieratis'] },
+      { label: '3rd pl', answers: ['eunt', 'ibunt', 'ibant', 'ierunt', 'ierant'] },
+    ],
+  },
+  {
+    title: 'Irregular: fero, ferre (to carry/bear)',
+    subtitle: 'All tenses',
+    headers: ['', 'Present', 'Future', 'Imperfect', 'Perfect', 'Pluperfect'],
+    rows: [
+      { label: '1st sg', answers: ['fero', 'feram', 'ferebam', 'tuli', 'tuleram'] },
+      { label: '2nd sg', answers: ['fers', 'feres', 'ferebas', 'tulisti', 'tuleras'] },
+      { label: '3rd sg', answers: ['fert', 'feret', 'ferebat', 'tulit', 'tulerat'] },
+      { label: '1st pl', answers: ['ferimus', 'feremus', 'ferebamus', 'tulimus', 'tuleramus'] },
+      { label: '2nd pl', answers: ['fertis', 'feretis', 'ferebatis', 'tulistis', 'tuleratis'] },
+      { label: '3rd pl', answers: ['ferunt', 'ferent', 'ferebant', 'tulerunt', 'tulerant'] },
+    ],
+  },
+];
+
+type Mode = 'reference' | 'practice';
+
 export default function ConjugationsPage() {
+  const [mode, setMode] = useState<Mode>('reference');
+  const [selectedTable, setSelectedTable] = useState(0);
+  const [inputs, setInputs] = useState<Record<string, string>>({});
+  const [checked, setChecked] = useState(false);
+
+  const table = CONJ_TABLES[selectedTable];
+
+  const resetPractice = (idx: number) => {
+    setSelectedTable(idx);
+    setInputs({});
+    setChecked(false);
+  };
+
+  const handleInput = (key: string, value: string) => {
+    setInputs((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const checkAnswers = () => setChecked(true);
+
+  const totalCells = table.rows.length * table.rows[0].answers.length;
+  const correctCells = checked
+    ? table.rows.reduce((sum, row, ri) =>
+        sum + row.answers.reduce((s, ans, ci) => {
+          const key = `${ri}-${ci}`;
+          return s + (inputs[key]?.trim().toLowerCase() === ans.toLowerCase() ? 1 : 0);
+        }, 0), 0)
+    : 0;
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
       <h1 className="text-2xl font-bold text-accent mb-2">Verb Conjugation Tables</h1>
-      <p className="text-sm text-foreground/60 mb-8">Present, future, imperfect, perfect, future perfect, and pluperfect tenses &mdash; active indicative</p>
+      <p className="text-sm text-foreground/60 mb-6">All tenses — active indicative + irregular verbs</p>
 
-      {/* Present Active */}
-      <section className="mb-10">
-        <h2 className="text-xl font-semibold mb-3">Present Active Indicative</h2>
-        <p className="text-sm text-foreground/50 mb-3">&ldquo;I carry / I am carrying&rdquo;</p>
-        <ConjTable
-          headers={['', '1st (porto)', '2nd (moneo)', '3rd (rego)', '4th (audio)', 'Mixed 3rd (capio)']}
-          rows={[
-            ['1st sg', 'port-o', 'mone-o', 'reg-o', 'audi-o', 'capi-o'],
-            ['2nd sg', 'port-as', 'mon-es', 'reg-is', 'aud-is', 'cap-is'],
-            ['3rd sg', 'port-at', 'mon-et', 'reg-it', 'aud-it', 'cap-it'],
-            ['1st pl', 'port-amus', 'mon-emus', 'reg-imus', 'aud-imus', 'cap-imus'],
-            ['2nd pl', 'port-atis', 'mon-etis', 'reg-itis', 'aud-itis', 'cap-itis'],
-            ['3rd pl', 'port-ant', 'mon-ent', 'reg-unt', 'audi-unt', 'capi-unt'],
-          ]}
-        />
-      </section>
+      {/* Mode toggle */}
+      <div className="flex gap-2 mb-6">
+        <button
+          onClick={() => setMode('reference')}
+          className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all ${mode === 'reference' ? 'bg-accent text-white border-accent' : 'border-card-border bg-card-bg'}`}
+        >
+          Reference Tables
+        </button>
+        <button
+          onClick={() => { setMode('practice'); resetPractice(0); }}
+          className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all ${mode === 'practice' ? 'bg-accent text-white border-accent' : 'border-card-border bg-card-bg'}`}
+        >
+          Fill-in Practice
+        </button>
+      </div>
 
-      {/* Future Active */}
-      <section className="mb-10">
-        <h2 className="text-xl font-semibold mb-3">Future Active Indicative</h2>
-        <p className="text-sm text-foreground/50 mb-3">&ldquo;I will carry&rdquo; &mdash; 1st/2nd use <span className="font-mono">-bi-</span>, 3rd/4th use <span className="font-mono">-a-/-e-</span></p>
-        <ConjTable
-          headers={['', '1st (porto)', '2nd (moneo)', '3rd (rego)', '4th (audio)', 'Mixed 3rd (capio)']}
-          rows={[
-            ['1st sg', 'port-abo', 'mon-ebo', 'reg-am', 'audi-am', 'capi-am'],
-            ['2nd sg', 'port-abis', 'mon-ebis', 'reg-es', 'audi-es', 'capi-es'],
-            ['3rd sg', 'port-abit', 'mon-ebit', 'reg-et', 'audi-et', 'capi-et'],
-            ['1st pl', 'port-abimus', 'mon-ebimus', 'reg-emus', 'audi-emus', 'capi-emus'],
-            ['2nd pl', 'port-abitis', 'mon-ebitis', 'reg-etis', 'audi-etis', 'capi-etis'],
-            ['3rd pl', 'port-abunt', 'mon-ebunt', 'reg-ent', 'audi-ent', 'capi-ent'],
-          ]}
-        />
-      </section>
-
-      {/* Imperfect Active */}
-      <section className="mb-10">
-        <h2 className="text-xl font-semibold mb-3">Imperfect Active Indicative</h2>
-        <p className="text-sm text-foreground/50 mb-3">&ldquo;I was carrying / I used to carry&rdquo;</p>
-        <ConjTable
-          headers={['', '1st', '2nd', '3rd', '4th', 'Mixed 3rd']}
-          rows={[
-            ['1st sg', 'port-abam', 'mon-ebam', 'reg-ebam', 'audi-ebam', 'capi-ebam'],
-            ['2nd sg', 'port-abas', 'mon-ebas', 'reg-ebas', 'audi-ebas', 'capi-ebas'],
-            ['3rd sg', 'port-abat', 'mon-ebat', 'reg-ebat', 'audi-ebat', 'capi-ebat'],
-            ['1st pl', 'port-abamus', 'mon-ebamus', 'reg-ebamus', 'audi-ebamus', 'capi-ebamus'],
-            ['2nd pl', 'port-abatis', 'mon-ebatis', 'reg-ebatis', 'audi-ebatis', 'capi-ebatis'],
-            ['3rd pl', 'port-abant', 'mon-ebant', 'reg-ebant', 'audi-ebant', 'capi-ebant'],
-          ]}
-        />
-      </section>
-
-      {/* Perfect Active */}
-      <section className="mb-10">
-        <h2 className="text-xl font-semibold mb-3">Perfect Active Indicative</h2>
-        <p className="text-sm text-foreground/50 mb-3">&ldquo;I carried / I have carried&rdquo; &mdash; all conjugations use the same endings on the perfect stem</p>
-        <ConjTable
-          headers={['', '1st (portav-)', '2nd (monu-)', '3rd (rex-)', '4th (audiv-)']}
-          rows={[
-            ['1st sg', 'portav-i', 'monu-i', 'rex-i', 'audiv-i'],
-            ['2nd sg', 'portav-isti', 'monu-isti', 'rex-isti', 'audiv-isti'],
-            ['3rd sg', 'portav-it', 'monu-it', 'rex-it', 'audiv-it'],
-            ['1st pl', 'portav-imus', 'monu-imus', 'rex-imus', 'audiv-imus'],
-            ['2nd pl', 'portav-istis', 'monu-istis', 'rex-istis', 'audiv-istis'],
-            ['3rd pl', 'portav-erunt', 'monu-erunt', 'rex-erunt', 'audiv-erunt'],
-          ]}
-        />
-      </section>
-
-      {/* Future Perfect Active */}
-      <section className="mb-10">
-        <h2 className="text-xl font-semibold mb-3">Future Perfect Active Indicative</h2>
-        <p className="text-sm text-foreground/50 mb-3">&ldquo;I will have carried&rdquo; &mdash; perfect stem + eri- (NB: 3rd pl <span className="font-mono">-erint</span>)</p>
-        <ConjTable
-          headers={['', '1st (portav-)', '2nd (monu-)', '3rd (rex-)', '4th (audiv-)']}
-          rows={[
-            ['1st sg', 'portav-ero', 'monu-ero', 'rex-ero', 'audiv-ero'],
-            ['2nd sg', 'portav-eris', 'monu-eris', 'rex-eris', 'audiv-eris'],
-            ['3rd sg', 'portav-erit', 'monu-erit', 'rex-erit', 'audiv-erit'],
-            ['1st pl', 'portav-erimus', 'monu-erimus', 'rex-erimus', 'audiv-erimus'],
-            ['2nd pl', 'portav-eritis', 'monu-eritis', 'rex-eritis', 'audiv-eritis'],
-            ['3rd pl', 'portav-erint', 'monu-erint', 'rex-erint', 'audiv-erint'],
-          ]}
-        />
-      </section>
-
-      {/* Pluperfect Active */}
-      <section className="mb-10">
-        <h2 className="text-xl font-semibold mb-3">Pluperfect Active Indicative</h2>
-        <p className="text-sm text-foreground/50 mb-3">&ldquo;I had carried&rdquo; &mdash; perfect stem + era-</p>
-        <ConjTable
-          headers={['', '1st (portav-)', '2nd (monu-)', '3rd (rex-)', '4th (audiv-)']}
-          rows={[
-            ['1st sg', 'portav-eram', 'monu-eram', 'rex-eram', 'audiv-eram'],
-            ['2nd sg', 'portav-eras', 'monu-eras', 'rex-eras', 'audiv-eras'],
-            ['3rd sg', 'portav-erat', 'monu-erat', 'rex-erat', 'audiv-erat'],
-            ['1st pl', 'portav-eramus', 'monu-eramus', 'rex-eramus', 'audiv-eramus'],
-            ['2nd pl', 'portav-eratis', 'monu-eratis', 'rex-eratis', 'audiv-eratis'],
-            ['3rd pl', 'portav-erant', 'monu-erant', 'rex-erant', 'audiv-erant'],
-          ]}
-        />
-      </section>
-
-      {/* sum */}
-      <section className="mb-10">
-        <h2 className="text-xl font-semibold mb-3">Irregular: <em>sum, esse</em> (to be)</h2>
-        <ConjTable
-          headers={['', 'Present', 'Future', 'Imperfect', 'Perfect', 'Fut. Perf.', 'Pluperfect']}
-          rows={[
-            ['1st sg', 'sum', 'ero', 'eram', 'fui', 'fuero', 'fueram'],
-            ['2nd sg', 'es', 'eris', 'eras', 'fuisti', 'fueris', 'fueras'],
-            ['3rd sg', 'est', 'erit', 'erat', 'fuit', 'fuerit', 'fuerat'],
-            ['1st pl', 'sumus', 'erimus', 'eramus', 'fuimus', 'fuerimus', 'fueramus'],
-            ['2nd pl', 'estis', 'eritis', 'eratis', 'fuistis', 'fueritis', 'fueratis'],
-            ['3rd pl', 'sunt', 'erunt', 'erant', 'fuerunt', 'fuerint', 'fuerant'],
-          ]}
-        />
-      </section>
-
-      {/* possum */}
-      <section className="mb-10">
-        <h2 className="text-xl font-semibold mb-3">Irregular: <em>possum, posse</em> (to be able)</h2>
-        <ConjTable
-          headers={['', 'Present', 'Future', 'Imperfect', 'Perfect', 'Fut. Perf.', 'Pluperfect']}
-          rows={[
-            ['1st sg', 'possum', 'potero', 'poteram', 'potui', 'potuero', 'potueram'],
-            ['2nd sg', 'potes', 'poteris', 'poteras', 'potuisti', 'potueris', 'potueras'],
-            ['3rd sg', 'potest', 'poterit', 'poterat', 'potuit', 'potuerit', 'potuerat'],
-            ['1st pl', 'possumus', 'poterimus', 'poteramus', 'potuimus', 'potuerimus', 'potueramus'],
-            ['2nd pl', 'potestis', 'poteritis', 'poteratis', 'potuistis', 'potueritis', 'potueratis'],
-            ['3rd pl', 'possunt', 'poterunt', 'poterant', 'potuerunt', 'potuerint', 'potuerant'],
-          ]}
-        />
-      </section>
-
-      {/* eo */}
-      <section className="mb-10">
-        <h2 className="text-xl font-semibold mb-3">Irregular: <em>eo, ire</em> (to go)</h2>
-        <ConjTable
-          headers={['', 'Present', 'Future', 'Imperfect', 'Perfect', 'Fut. Perf.', 'Pluperfect']}
-          rows={[
-            ['1st sg', 'eo', 'ibo', 'ibam', 'i(v)i', 'i(v)ero', 'i(v)eram'],
-            ['2nd sg', 'is', 'ibis', 'ibas', 'i(v)isti', 'i(v)eris', 'i(v)eras'],
-            ['3rd sg', 'it', 'ibit', 'ibat', 'i(v)it', 'i(v)erit', 'i(v)erat'],
-            ['1st pl', 'imus', 'ibimus', 'ibamus', 'i(v)imus', 'i(v)erimus', 'i(v)eramus'],
-            ['2nd pl', 'itis', 'ibitis', 'ibatis', 'i(v)istis', 'i(v)eritis', 'i(v)eratis'],
-            ['3rd pl', 'eunt', 'ibunt', 'ibant', 'i(v)erunt', 'i(v)erint', 'i(v)erant'],
-          ]}
-        />
-      </section>
-
-      {/* fero */}
-      <section className="mb-10">
-        <h2 className="text-xl font-semibold mb-3">Irregular: <em>fero, ferre</em> (to carry/bear)</h2>
-        <ConjTable
-          headers={['', 'Present', 'Future', 'Imperfect', 'Perfect', 'Fut. Perf.', 'Pluperfect']}
-          rows={[
-            ['1st sg', 'fero', 'feram', 'ferebam', 'tuli', 'tulero', 'tuleram'],
-            ['2nd sg', 'fers', 'feres', 'ferebas', 'tulisti', 'tuleris', 'tuleras'],
-            ['3rd sg', 'fert', 'feret', 'ferebat', 'tulit', 'tulerit', 'tulerat'],
-            ['1st pl', 'ferimus', 'feremus', 'ferebamus', 'tulimus', 'tulerimus', 'tuleramus'],
-            ['2nd pl', 'fertis', 'feretis', 'ferebatis', 'tulistis', 'tuleritis', 'tuleratis'],
-            ['3rd pl', 'ferunt', 'ferent', 'ferebant', 'tulerunt', 'tulerint', 'tulerant'],
-          ]}
-        />
-      </section>
-
-      {/* volo/nolo/malo */}
-      <section className="mb-10">
-        <h2 className="text-xl font-semibold mb-3">Irregular: <em>volo, nolo, malo</em></h2>
-        <p className="text-sm text-foreground/50 mb-3">to want / to not want / to prefer (present tense)</p>
-        <ConjTable
-          headers={['', 'volo', 'nolo', 'malo']}
-          rows={[
-            ['1st sg', 'volo', 'nolo', 'malo'],
-            ['2nd sg', 'vis', 'non vis', 'mavis'],
-            ['3rd sg', 'vult', 'non vult', 'mavult'],
-            ['1st pl', 'volumus', 'nolumus', 'malumus'],
-            ['2nd pl', 'vultis', 'non vultis', 'mavultis'],
-            ['3rd pl', 'volunt', 'nolunt', 'malunt'],
-          ]}
-        />
-      </section>
-
-      {/* Key patterns */}
-      <section className="rounded-xl border border-card-border bg-card-bg p-5">
-        <h3 className="font-semibold mb-2">Key Patterns</h3>
-        <ul className="text-sm text-foreground/70 space-y-1 list-disc list-inside">
-          <li>Personal endings (active): <span className="font-mono">-o/-m, -s, -t, -mus, -tis, -nt</span></li>
-          <li>Future: 1st/2nd use <span className="font-mono">-bi-</span> (<span className="font-mono">-bo, -bis, -bit, -bimus, -bitis, -bunt</span>); 3rd/4th use <span className="font-mono">-am, -es, -et, -emus, -etis, -ent</span></li>
-          <li>Imperfect sign: <span className="font-mono">-ba-</span> (1st/2nd), <span className="font-mono">-eba-</span> (3rd/4th)</li>
-          <li>Perfect endings are the same for all conjugations: <span className="font-mono">-i, -isti, -it, -imus, -istis, -erunt</span></li>
-          <li>Future perfect = perfect stem + <span className="font-mono">-ero, -eris, -erit, -erimus, -eritis, -erint</span></li>
-          <li>Pluperfect = perfect stem + <span className="font-mono">-eram, -eras, -erat, -eramus, -eratis, -erant</span></li>
-        </ul>
-      </section>
-    </div>
-  );
-}
-
-function ConjTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
-  return (
-    <div className="overflow-x-auto">
-      <table className="w-full text-sm border-collapse mb-2">
-        <thead>
-          <tr>
-            {headers.map((h) => (
-              <th
-                key={h}
-                className="text-left px-3 py-2 border-b-2 border-accent/30 font-semibold text-accent whitespace-nowrap"
-              >
-                {h}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, i) => (
-            <tr key={i} className={i % 2 === 0 ? 'bg-accent/[0.03]' : ''}>
-              {row.map((cell, j) => (
-                <td
-                  key={j}
-                  className={`px-3 py-2 border-b border-card-border whitespace-nowrap ${j === 0 ? 'font-medium' : 'font-mono'}`}
-                >
-                  {cell}
-                </td>
-              ))}
-            </tr>
+      {mode === 'reference' && (
+        <div className="space-y-8">
+          {CONJ_TABLES.map((t, ti) => (
+            <section key={ti}>
+              <h2 className="text-lg font-semibold mb-1">{t.title}</h2>
+              <p className="text-sm text-foreground/50 mb-2">{t.subtitle}</p>
+              <div className="overflow-x-auto">
+                <table className="text-sm border-collapse w-full">
+                  <thead>
+                    <tr>
+                      {t.headers.map((h) => (
+                        <th key={h} className="text-left px-3 py-2 border-b-2 border-accent/30 font-semibold text-accent whitespace-nowrap">{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {t.rows.map((row, ri) => (
+                      <tr key={ri} className={ri % 2 === 0 ? 'bg-accent/[0.03]' : ''}>
+                        <td className="px-3 py-2 border-b border-card-border font-medium">{row.label}</td>
+                        {row.answers.map((ans, ci) => (
+                          <td key={ci} className="px-3 py-2 border-b border-card-border font-mono whitespace-nowrap">{ans}</td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
           ))}
-        </tbody>
-      </table>
+
+          {/* Key patterns */}
+          <section className="rounded-xl border border-card-border bg-card-bg p-5">
+            <h3 className="font-semibold mb-2">Key Patterns</h3>
+            <ul className="text-sm text-foreground/70 space-y-1 list-disc list-inside">
+              <li>Personal endings (active): <span className="font-mono">-o/-m, -s, -t, -mus, -tis, -nt</span></li>
+              <li>Future: 1st/2nd use <span className="font-mono">-bi-</span>; 3rd/4th use <span className="font-mono">-am, -es, -et, -emus, -etis, -ent</span></li>
+              <li>Imperfect sign: <span className="font-mono">-ba-</span> (1st/2nd), <span className="font-mono">-eba-</span> (3rd/4th)</li>
+              <li>Perfect endings are the same for all: <span className="font-mono">-i, -isti, -it, -imus, -istis, -erunt</span></li>
+              <li>Pluperfect = perfect stem + <span className="font-mono">-eram, -eras, -erat, -eramus, -eratis, -erant</span></li>
+            </ul>
+          </section>
+        </div>
+      )}
+
+      {mode === 'practice' && (
+        <>
+          <div className="flex flex-wrap gap-2 mb-6">
+            {CONJ_TABLES.map((t, i) => (
+              <button
+                key={i}
+                onClick={() => resetPractice(i)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${
+                  selectedTable === i ? 'bg-accent text-white border-accent' : 'border-card-border bg-card-bg'
+                }`}
+              >
+                {t.title.length > 25 ? t.title.split('—')[0].split(':').pop()?.trim() || t.title.slice(0, 20) : t.title.slice(0, 25)}
+              </button>
+            ))}
+          </div>
+
+          <h2 className="text-lg font-semibold mb-1">{table.title}</h2>
+          <p className="text-sm text-foreground/50 mb-4">{table.subtitle}</p>
+
+          <div className="overflow-x-auto mb-4">
+            <table className="text-sm border-collapse w-full">
+              <thead>
+                <tr>
+                  {table.headers.map((h) => (
+                    <th key={h} className="text-left px-2 py-2 border-b-2 border-accent/30 font-semibold text-accent text-xs whitespace-nowrap">{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {table.rows.map((row, ri) => (
+                  <tr key={ri} className={ri % 2 === 0 ? 'bg-accent/[0.03]' : ''}>
+                    <td className="px-2 py-1.5 border-b border-card-border font-medium text-sm">{row.label}</td>
+                    {row.answers.map((ans, ci) => {
+                      const key = `${ri}-${ci}`;
+                      const val = inputs[key] ?? '';
+                      const isCorrect = checked && val.trim().toLowerCase() === ans.toLowerCase();
+                      const isWrong = checked && val.trim().toLowerCase() !== ans.toLowerCase();
+                      return (
+                        <td key={ci} className="px-1 py-1 border-b border-card-border">
+                          <div className="relative">
+                            <input
+                              type="text"
+                              value={val}
+                              onChange={(e) => handleInput(key, e.target.value)}
+                              disabled={checked}
+                              className={`w-full px-2 py-1.5 rounded border text-sm font-mono ${
+                                checked
+                                  ? isCorrect
+                                    ? 'border-correct bg-correct/10 text-correct'
+                                    : 'border-incorrect bg-incorrect/10 text-incorrect'
+                                  : 'border-card-border bg-card-bg focus:border-accent focus:outline-none'
+                              }`}
+                              placeholder="..."
+                            />
+                            {isWrong && (
+                              <p className="text-[10px] text-correct mt-0.5 font-mono">{ans}</p>
+                            )}
+                          </div>
+                        </td>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {!checked ? (
+            <button
+              onClick={checkAnswers}
+              className="px-6 py-2.5 rounded-lg bg-accent text-white font-medium hover:bg-accent/90"
+            >
+              Check Answers
+            </button>
+          ) : (
+            <div className="flex items-center gap-4">
+              <p className={`text-sm font-medium ${correctCells === totalCells ? 'text-correct' : 'text-foreground/60'}`}>
+                {correctCells}/{totalCells} correct ({Math.round((correctCells / totalCells) * 100)}%)
+              </p>
+              <button
+                onClick={() => resetPractice(selectedTable)}
+                className="px-4 py-2 rounded-lg border border-card-border bg-card-bg text-sm font-medium hover:bg-accent-light/10"
+              >
+                Try Again
+              </button>
+              {selectedTable < CONJ_TABLES.length - 1 && (
+                <button
+                  onClick={() => resetPractice(selectedTable + 1)}
+                  className="px-4 py-2 rounded-lg bg-accent text-white text-sm font-medium hover:bg-accent/90"
+                >
+                  Next Table &rarr;
+                </button>
+              )}
+            </div>
+          )}
+        </>
+      )}
     </div>
   );
 }

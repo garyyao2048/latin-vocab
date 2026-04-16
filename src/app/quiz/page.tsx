@@ -4,6 +4,7 @@ import { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import { vocab, VocabEntry } from '@/data/vocab';
 import { vocabLists, getWordsForLists } from '@/data/lists';
 import { saveQuizSession, updateWordProgress, adjustDifficultyOnQuiz, getWordsByDifficulty, getDifficultyCounts, Difficulty } from '@/lib/progress';
+import WordCard from '@/components/WordCard';
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -92,6 +93,8 @@ export default function QuizPage() {
 
   const wordResults = useRef<{ latin: string; correct: boolean }[]>([]);
 
+  const [idk, setIdk] = useState(false);
+
   const handleSelect = useCallback(
     (option: string) => {
       if (selected) return;
@@ -107,8 +110,18 @@ export default function QuizPage() {
     [selected, correctAnswer, current]
   );
 
+  const handleIdk = useCallback(() => {
+    if (selected) return;
+    setSelected('__idk__');
+    setIdk(true);
+    setTotal((t) => t + 1);
+    wordResults.current.push({ latin: current.latin, correct: false });
+    adjustDifficultyOnQuiz(current.latin, false);
+  }, [selected, current]);
+
   const next = () => {
     setSelected(null);
+    setIdk(false);
     const nextIdx = questionIndex + 1;
     if (nextIdx >= filtered.length) {
       const results = wordResults.current;
@@ -132,6 +145,7 @@ export default function QuizPage() {
     setScore(0);
     setTotal(0);
     setSelected(null);
+    setIdk(false);
     wordResults.current = [];
     setDiffWords([]);
   };
@@ -336,7 +350,7 @@ export default function QuizPage() {
             if (option === correctAnswer) {
               bg = 'bg-correct/10';
               border = 'border-correct';
-            } else if (option === selected) {
+            } else if (option === selected && selected !== '__idk__') {
               bg = 'bg-incorrect/10';
               border = 'border-incorrect';
             }
@@ -354,17 +368,43 @@ export default function QuizPage() {
         })}
       </div>
 
-      {selected && (
-        <div className="text-center">
-          <p className={`text-sm font-medium mb-3 ${selected === correctAnswer ? 'text-correct' : 'text-incorrect'}`}>
-            {selected === correctAnswer ? 'Correct!' : `Wrong — the answer was: ${correctAnswer}`}
-          </p>
+      {/* IDK button */}
+      {!selected && (
+        <div className="text-center mb-4">
           <button
-            onClick={next}
-            className="px-5 py-2 rounded-lg bg-accent text-white font-medium hover:bg-accent/90"
+            onClick={handleIdk}
+            className="px-4 py-2 rounded-lg border-2 border-foreground/20 text-foreground/40 text-sm font-medium hover:border-foreground/40 hover:text-foreground/60 transition-all"
           >
-            Next Question
+            I don&apos;t know
           </button>
+        </div>
+      )}
+
+      {selected && (
+        <div className="space-y-4">
+          <div className="text-center">
+            <p className={`text-sm font-medium mb-3 ${selected === correctAnswer ? 'text-correct' : 'text-incorrect'}`}>
+              {selected === correctAnswer
+                ? 'Correct!'
+                : idk
+                ? `The answer was: ${correctAnswer}`
+                : `Wrong — the answer was: ${correctAnswer}`}
+            </p>
+          </div>
+
+          {/* Show word card on wrong/idk answers */}
+          {selected !== correctAnswer && (
+            <WordCard word={current} />
+          )}
+
+          <div className="text-center">
+            <button
+              onClick={next}
+              className="px-5 py-2 rounded-lg bg-accent text-white font-medium hover:bg-accent/90"
+            >
+              Next Question
+            </button>
+          </div>
         </div>
       )}
     </div>
