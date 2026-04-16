@@ -21,3 +21,8 @@ export async function signUp(email: string, password: string) {
 export async function signOut() {
   return supabase.auth.signOut();
 }
+
+export async function getUserId(): Promise<string | null> {
+  const { data } = await supabase.auth.getUser();
+  return data.user?.id ?? null;
+}

@@ -1,4 +1,4 @@
-import { supabase } from './supabase';
+import { supabase, getUserId } from './supabase';
 
 export async function saveQuizSession(params: {
   mode: 'quiz' | 'practice';
@@ -7,7 +7,10 @@ export async function saveQuizSession(params: {
   totalQuestions: number;
   correctAnswers: number;
 }) {
+  const user_id = await getUserId();
+  if (!user_id) return;
   await supabase.from('quiz_sessions').insert({
+    user_id,
     mode: params.mode,
     direction: params.direction,
     lists_used: params.listsUsed,
@@ -17,6 +20,8 @@ export async function saveQuizSession(params: {
 }
 
 export async function updateWordProgress(results: { latin: string; correct: boolean }[]) {
+  const user_id = await getUserId();
+  if (!user_id) return;
   for (const r of results) {
     const { data } = await supabase
       .from('word_progress')
@@ -35,6 +40,7 @@ export async function updateWordProgress(results: { latin: string; correct: bool
         .eq('latin', r.latin);
     } else {
       await supabase.from('word_progress').insert({
+        user_id,
         latin: r.latin,
         times_seen: 1,
         times_correct: r.correct ? 1 : 0,
@@ -66,6 +72,8 @@ export async function getRecentSessions(limit = 20) {
 export type Difficulty = 'new' | 'hard' | 'medium' | 'easy';
 
 export async function setWordDifficulty(latin: string, difficulty: Difficulty) {
+  const user_id = await getUserId();
+  if (!user_id) return;
   const { data } = await supabase
     .from('word_difficulty')
     .select('id')
@@ -79,6 +87,7 @@ export async function setWordDifficulty(latin: string, difficulty: Difficulty) {
       .eq('latin', latin);
   } else {
     await supabase.from('word_difficulty').insert({
+      user_id,
       latin,
       difficulty,
     });
@@ -123,6 +132,8 @@ function saveStreaks(streaks: Record<string, number>) {
 }
 
 export async function adjustDifficultyOnQuiz(latin: string, correct: boolean) {
+  const user_id = await getUserId();
+  if (!user_id) return;
   const { data } = await supabase
     .from('word_difficulty')
     .select('difficulty')
@@ -132,8 +143,8 @@ export async function adjustDifficultyOnQuiz(latin: string, correct: boolean) {
   const streaks = getStreaks();
 
   if (!data) {
-    // First time — set to hard if wrong, medium if right
     await supabase.from('word_difficulty').insert({
+      user_id,
       latin,
       difficulty: correct ? 'medium' : 'hard',
     });
@@ -146,14 +157,12 @@ export async function adjustDifficultyOnQuiz(latin: string, correct: boolean) {
   const streak = streaks[latin] ?? 0;
 
   if (!correct) {
-    // Wrong: move down, reset streak
     const currentIdx = DIFF_ORDER.indexOf(currentDiff);
     const newDiff = currentIdx <= 0 ? 'hard' : DIFF_ORDER[currentIdx - 1];
     await setWordDifficulty(latin, newDiff);
     streaks[latin] = 0;
     saveStreaks(streaks);
   } else {
-    // Correct: increment streak, move up after 3
     const newStreak = streak + 1;
     if (newStreak >= 3) {
       const currentIdx = DIFF_ORDER.indexOf(currentDiff);
